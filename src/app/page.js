@@ -13,8 +13,8 @@ export default function Home() {
     <Hero/>
     <BestSelling />
     <Categories />
-    {/* <Bannner />
-    <NewArrivels /> */}
+    <Bannner />
+    <NewArrivels />
    </div>
   );
 }
