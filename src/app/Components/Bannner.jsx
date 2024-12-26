@@ -97,7 +97,7 @@ const Banner = () => {
           backgroundImage: "url('/banner2.png')",
         }}
       />
-      <div className="absolute inset-0 bg-black bg-opacity-30" />
+      <div className="absolute inset-0 bg-black bg-opacity-50" />
       <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center text-white font-Outfit max-w-4xl">
           <h1 
@@ -110,7 +110,7 @@ const Banner = () => {
             ref={subtitleRef}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide"
           >
-            <span className="text-pink-400 font-semibold">DURABLE</span>, RELIABLE, AND READY FOR ANYTHING
+            <span className='text-pink-400 font-semibold'>DURABLE </span>, RELIABLE, AND READY FOR ANYTHING
           </p>
         </div>
       </div>

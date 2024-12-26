@@ -85,13 +85,13 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative z-10 h-[70vh] overflow-hidden">
+    <div className="relative z-10 h-[80vh] overflow-hidden">
       {/* Slides */}
       {banners.map((banner, index) => (
         <div
           key={index}
           ref={slideRefs[index]}
-          className={`absolute inset-0 transition-opacity duration-500 ${
+          className={`absolute inset-0 transition-opacity  duration-500 ${
             currentSlide === index ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
@@ -103,9 +103,9 @@ const Hero = () => {
         >
           <div 
             ref={textRefs[index]}
-            className='px-20 md:px-16 lg:px-32 font-Outfit text-white container mx-auto h-full flex flex-col justify-center items-start'
+            className='px-20 md:px-16 lg:px-32 font-Outfit text-white  container mx-auto h-full flex flex-col justify-center items-start'
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <h1 className="text-2xl  sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               {banner.title}{' '}
               <span className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl block mt-2">
                 {banner.highlight}
@@ -124,17 +124,17 @@ const Hero = () => {
       {/* Navigation Buttons */}
       <button
         onClick={handlePrevSlide}
-        className="absolute left-2 sm:left-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-1 sm:p-2 transition-colors duration-300"
+        className="absolute left-2 sm:left-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 text-white"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-20 h-20" />
       </button>
       <button
         onClick={handleNextSlide}
-        className="absolute right-2 sm:right-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-1 sm:p-2 transition-colors duration-300"
+        className="absolute right-2 sm:right-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 text-white"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-20 h-20" />
       </button>
 
       {/* Navigation Dots */}
