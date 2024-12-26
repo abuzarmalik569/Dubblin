@@ -1,8 +1,10 @@
 
+
 "use client"
 
 import React, { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -74,8 +76,16 @@ const Hero = () => {
     }
   };
 
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % banners.length);
+  };
+
   return (
-    <div className="relative z-10 h-[100vh] overflow-hidden">
+    <div className="relative z-10 h-[70vh] overflow-hidden">
       {/* Slides */}
       {banners.map((banner, index) => (
         <div
@@ -88,37 +98,54 @@ const Hero = () => {
             backgroundImage: `url('${banner.image}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <div 
             ref={textRefs[index]}
-            className='px-6 font-Outfit text-white container mx-auto h-full flex flex-col justify-center'
+            className='px-20 md:px-16 lg:px-32 font-Outfit text-white container mx-auto h-full flex flex-col justify-center items-start'
           >
-            <h1 className='text-4xl md:text-6xl lg:text-6xl'>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               {banner.title}{' '}
-              <span className="font-semibold text-5xl md:text-7xl lg:text-8xl block mt-2">
+              <span className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl block mt-2">
                 {banner.highlight}
               </span>
             </h1>
-            <p className='mt-4 text-xl md:text-2xl max-w-xl'>
+            <p className="mt-2 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
               {banner.description}
             </p>
-            <button className='bg-red-700 px-5 py-2 rounded-lg mt-6 w-fit hover:bg-red-800 transition-colors duration-300'>
+            <button className="bg-red-700 px-3 py-1 sm:px-4 sm:py-2 rounded-lg mt-3 sm:mt-4 md:mt-6 w-fit hover:bg-red-800 transition-colors duration-300 text-xs sm:text-sm md:text-base">
               Shop Now
             </button>
           </div>
         </div>
       ))}
 
+      {/* Navigation Buttons */}
+      <button
+        onClick={handlePrevSlide}
+        className="absolute left-2 sm:left-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-1 sm:p-2 transition-colors duration-300"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={handleNextSlide}
+        className="absolute right-2 sm:right-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-1 sm:p-2 transition-colors duration-300"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
       {/* Navigation Dots */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1 sm:gap-2">
         {banners.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index 
-                ? 'bg-white w-8' 
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+              currentSlide === index
+                ? 'bg-white w-4 sm:w-6 md:w-8'
                 : 'bg-white/50 hover:bg-white/70'
             }`}
             aria-label={`Go to slide ${index + 1}`}
@@ -130,3 +157,6 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+

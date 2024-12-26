@@ -5,6 +5,7 @@ import BestSelling from "./Components/BestSelling";
 import Categories from "./Components/Categories";
 import Bannner from "./Components/Bannner";
 import NewArrivels from "./Components/NewArrivels";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
     <Categories />
     <Bannner />
     <NewArrivels />
+    <Footer />
    </div>
   );
 }
