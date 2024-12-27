@@ -85,7 +85,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative z-10 h-[80vh] overflow-hidden">
+    <div className="relative h-[80vh] overflow-hidden">
       {/* Slides */}
       {banners.map((banner, index) => (
         <div
@@ -124,14 +124,14 @@ const Hero = () => {
       {/* Navigation Buttons */}
       <button
         onClick={handlePrevSlide}
-        className="absolute left-2 sm:left-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 text-white"
+        className="absolute left-2 sm:left-4 top-1/2 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 text-white"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-20 h-20" />
       </button>
       <button
         onClick={handleNextSlide}
-        className="absolute right-2 sm:right-4 top-2/3 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 text-white"
+        className="absolute right-2 sm:right-4 top-1/2 md:top-1/2 lg:top-1/2 transform -translate-y-1/2 text-white"
         aria-label="Next slide"
       >
         <ChevronRight className="w-20 h-20" />
