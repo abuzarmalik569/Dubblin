@@ -45,7 +45,7 @@ const BestSelling = () => {
 
     return (
         <div ref={sectionRef} className="container mx-auto">
-            <h1 className="best-selling-title text-center mt-8 md:mt-16 mb-8 md:mb-16 text-xl font-semibold font-Outfit">
+            <h1 className="best-selling-title text-black text-center mt-8 md:mt-16 mb-8 md:mb-16 text-xl font-semibold font-Outfit">
                 Best Selling
             </h1>
 

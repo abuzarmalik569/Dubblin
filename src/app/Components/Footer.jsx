@@ -119,7 +119,7 @@ const ExpandableSection = ({ title, children }) => (
 
 const Footer = () => {
   return (
-    <footer className='font-Outfit'>
+    <footer className='font-Outfit text-black bg-white'>
       {/* Newsletter Section */}
       <div className='p-4 sm:p-10 w-full bg-cover bg-center bg-no-repeat'
         style={{

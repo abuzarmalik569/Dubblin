@@ -107,7 +107,7 @@ const NewArrivals = () => {
   }, []);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 font-Outfit">
+    <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 font-Outfit text-black">
       <h2 ref={headingRef} className="text-2xl md:text-3xl lg:text-4xl font-semibold text-center mt-10 mb-16">
         New Arrivals
       </h2>

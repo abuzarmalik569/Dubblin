@@ -502,7 +502,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+    <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 text-black">
       <div ref={headingRef} className="text-center mt-8 md:mt-14 font-Outfit">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold">
           Discover Our Categories
