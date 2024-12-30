@@ -108,9 +108,10 @@ const NewArrivals = () => {
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 font-Outfit text-black">
-      <h2 ref={headingRef} className="text-2xl md:text-3xl lg:text-4xl font-semibold text-center mt-10 mb-16">
+      <h2 ref={headingRef} className="text-2xl md:text-3xl lg:text-4xl font-Cinzel font-semibold text-center mt-10 mb-16">
         New Arrivals
       </h2>
+    
       <div ref={productsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
         {products.map((product) => (
           <div 
@@ -137,21 +138,13 @@ const NewArrivals = () => {
             </div>
             <div className="p-4 bg-white">
               <h3 className="text-lg font-medium mb-2 line-clamp-2">{product.name}</h3>
-              <div className="flex items-center mb-3">
-                {[...Array(5)].map((_, index) => (
-                  <Star
-                    key={index}
-                    size={16}
-                    className={index < 4 ? "text-yellow-400 fill-current" : "text-gray-300"}
-                  />
-                ))}
-              </div>
+             
               <div className="flex items-center justify-between">
                 <span className="text-lg font-semibold">
-                  Rs.{product.price.toFixed(2)}
+                &#8377;.{product.price.toFixed(2)}
                 </span>
                 <span className="text-pink-700 line-through text-sm">
-                  Rs.{product.oldPrice.toFixed(2)}
+                &#8377;.{product.oldPrice.toFixed(2)}
                 </span>
               </div>
               {isProductSelected(product.id) && (

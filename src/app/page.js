@@ -19,7 +19,6 @@ export default function Home() {
     <Categories />
     <Bannner />
     <NewArrivels />
-    {/* <InstagramReels /> */}
     <Footer />
    </div>
   );

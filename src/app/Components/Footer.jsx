@@ -153,7 +153,7 @@ const Footer = () => {
             <Image src="/logo.png" alt="Dubblin Logo" width={100} height={100} />
             <p className='text-sm'>Dubblin as a Brand in the industry has flourished as an importer of household products. Over the years since its inception in 2008, the company has focused its activities on importing of household goods.</p>
             <h2 className='border-y-2 border-yellow-700 w-28 text-center text-xl'>Follow us</h2>
-            <div className='flex gap-4 text-2xl'>
+            <div className='flex gap-4 text-3xl'>
               <FaFacebook className="hover:text-blue-600 cursor-pointer" />
               <FaInstagram className="hover:text-pink-600 cursor-pointer" />
               <FaTwitter className="hover:text-blue-400 cursor-pointer" />

@@ -9,6 +9,12 @@ const Outfit = localFont({
   weight: "100-900",
 });
 
+const Cinzel = localFont({
+  src: "./fonts/Cinzel-VariableFont_wght.ttf",
+  variable: "--font-Cinzel",
+  weight: "100-900",
+})
+
 
 export const metadata = {
   title: "Create Next App",
@@ -19,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${Outfit.variable} antialiased`}
+        className={`${Outfit.variable} ${Cinzel.variable} antialiased`}
       >
         {children}
       </body>

@@ -45,10 +45,10 @@ const BestSelling = () => {
 
     return (
         <div ref={sectionRef} className="container mx-auto">
-            <h1 className="best-selling-title text-black text-center mt-8 md:mt-16 mb-8 md:mb-16 text-xl font-semibold font-Outfit">
+            <h1 className="best-selling-title text-black text-center mt-8 md:mt-16 mb-1 text-3xl font-bold font-Cinzel">
                 Best Selling
             </h1>
-
+            <p className=' font-Outfit font-medium text-lg text-center mb-10 text-black'>Discover our exciting New Arrivals</p>
             <div className="image-grid flex flex-col items-center lg:flex-row justify-center gap-4">
                 {/* First Image */}
                 <div className="image-container relative w-full lg:w-auto">

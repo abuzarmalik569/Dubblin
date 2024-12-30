@@ -1,3 +1,5 @@
+import { Cinzel } from 'next/font/google';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -13,6 +15,7 @@ export default {
       },
       fontFamily:{
         Outfit: ["var(--font-Outfit)"],
+        Cinzel: ["var(--font-Cinzel)"],
       }
     },
   },
