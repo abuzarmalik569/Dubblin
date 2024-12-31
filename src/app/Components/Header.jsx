@@ -131,7 +131,7 @@ export default function Header() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  console.log("The  value is:", isMobileMenuOpen)
+  
 
   useEffect(() => {
     if (isSearchOpen) {
@@ -170,12 +170,12 @@ export default function Header() {
   };
 
   const toggleAboutDropdown = () => {
-    console.log("The toggle about dropdown value is working");
+   
     setIsAboutDropdownOpen(!isAboutDropdownOpen);
     setActiveMegaMenu(null);
   };
 
-  console.log("The isAboutDropdownOpen value is", isAboutDropdownOpen);
+ 
 
   const toggleMegaMenu = (title) => {
     setActiveMegaMenu(activeMegaMenu === title ? null : title);

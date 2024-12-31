@@ -6,7 +6,8 @@ import BestSelling from "./Components/BestSelling";
 import Categories from "./Components/Categories";
 import Bannner from "./Components/Bannner";
 import NewArrivels from "./Components/NewArrivels";
-import InstagramReels from "./Components/InstagramReels"
+import About from "./Components/About";
+import InstagramReels from "./Components/InstagramReels";
 import Footer from "./Components/Footer";
 
 export default function Home() {
@@ -19,6 +20,8 @@ export default function Home() {
     <Categories />
     <Bannner />
     <NewArrivels />
+    <About />
+    <InstagramReels />
     <Footer />
    </div>
   );
