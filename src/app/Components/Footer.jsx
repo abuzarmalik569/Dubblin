@@ -23,14 +23,14 @@ const Footer = () => {
           backgroundImage: "url('/footer.png')",
         }}>
         <div className='flex flex-col sm:flex-row items-center justify-between max-w-6xl mx-auto'>
-          <div className='text-white font-bold text-2xl sm:text-3xl mb-4 sm:mb-0 text-center sm:text-left'>
+          <div className='text-white font-semibold text-2xl sm:text-3xl mb-4 sm:mb-0 text-center sm:text-left'>
             <h2>JOIN OUR <br />NEWSLETTER</h2>
           </div>
           
-          <div className="relative w-full  sm:w-[300px] bg-gray-100 rounded-2xl shadow-md p-1.5">
+          <div className="relative w-full  sm:w-[500px] bg-gray-100 rounded-2xl shadow-md p-1.5">
             <input
               type="email"
-              className="w-full pl-2 pr-24 py-4 text-base sm:text-xl text-black bg-transparent rounded-lg focus:outline-none"
+              className="w-full pl-2  py-4 text-base sm:text-xl text-black bg-transparent rounded-lg focus:outline-none"
               placeholder="Enter Email"
             />
             <button
@@ -126,7 +126,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='mt-4 py-4 bg-black text-white text-center text-sm border-t'>
-          <p>Copyright &copy; {new Date().getFullYear()} Dubblin |Developed By Callsmaster Services LLP.</p>
+          <p>Copyright &copy; {new Date().getFullYear()} Dubblin |Developed By Aarvy Technologies.</p>
         </div>
     </footer>
   )

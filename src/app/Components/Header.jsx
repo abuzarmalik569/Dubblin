@@ -243,7 +243,7 @@ export default function Header() {
       <nav className="border-b bg-white relative">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <div className="hidden lg:flex lg:flex-1 lg:items-center justify-end lg:space-x-20">
+            <div className="hidden lg:flex lg:flex-1 lg:items-center justify-end lg:space-x-10">
               {navigation.slice(0, 4).map((item) => (
                 <div key={item.title} className="relative">
                   {renderNavItem(item)}
@@ -263,13 +263,13 @@ export default function Header() {
               </Link>
             </div>
 
-            <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-start lg:space-x-20">
+            <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-start lg:space-x-10">
               {navigation.slice(4).map((item) => (
                 <div key={item.title} className="relative">
                   {renderNavItem(item)}
                 </div>
               ))}
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center w-52 borderm justify-end space-x-6">
                 <button
                   onClick={toggleSearch}
                   className="text-gray-700 hover:text-gray-900 transition-colors duration-200"

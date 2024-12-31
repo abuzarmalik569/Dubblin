@@ -108,17 +108,26 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
 
     return (
         // <div className="bg-white inset-10  flex flex-col md:flex-row p-4 md:p-8 justify-evenly max-w-6xl mx-auto relative">
-        //     <button 
-        //         onClick={onClose}
-        //         className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-        //     >
-        //         <X size={24} />
-        //     </button>
+        //    
 
-        <div className='bg-white flex flex-wrap overflow-x-hidden  md:h-[90vh] h-full w-screen  md:m-10 m-0 overflow-y-auto justify-evenly rounded-lg'  onClick={(e) => e.stopPropagation()}>
-
+//         <button 
+//         onClick={onClose}
+//         className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+//     >
+//         <X size={24} />
+//  </button>
+        <div className='bg-white  overflow-x-hidden  md:h-[90vh] h-full w-screen  md:m-10 m-0 overflow-y-auto justify-evenly rounded-lg'  onClick={(e) => e.stopPropagation()}>
+             <div className=' text-xl p-4 flex justify-end'>
+             <button 
+                 onClick={onClose}
+                 className=" text-gray-500 hover:text-gray-700"
+             >
+                 <X size={24} />
+          </button>
+             </div>
       
-            <div className="w-full md:w-2/5 mb-6 md:mb-0 m-10  mx-auto">
+         <div className='flex flex-wrap'>
+         <div className="w-full md:w-2/5 mb-6 md:mb-0 m-10  mx-auto">
                 <div 
                     className="flex justify-center relative overflow-hidden"
                     style={{ height: '600px' }}
@@ -183,8 +192,12 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                 </div>
             </div>
 
+         
             <div className="w-full m-10 md:w-2/5">
+            <div className=' flex justify-between'>
                 <h1 className="text-xl font-semibold">Custom Ecofriendly Water <br /> Bottles</h1>
+
+                </div>
                 <div className="space-y-4 mt-12 mb-4 flex flex-col justify-center">
                     <p className='flex text-sm'><strong className='w-1/4 block'>Available:</strong> <span className='block w-1/4 text-slate-500 font-semibold'>In stock</span></p>
                     <p className='flex text-sm'><strong className='w-1/4 block'>Capacity</strong> <span className='block w-1/4 text-slate-500 font-semibold'>{capacity}</span></p>
@@ -263,6 +276,7 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                     </div>
                 </div>
             </div>
+         </div>
          </div>
         
     );
