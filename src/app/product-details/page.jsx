@@ -392,8 +392,8 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
             </div>
             <div className=" text-lg px-4 pb-4">
               <button
-                ref={addToCartButtonRef}
-                onClick={handleAddToCart}
+                // ref={addToCartButtonRef}
+                // onClick={handleAddToCart}
                 className="w-[100%]  text-black border border-black px-6 py-2 rounded-md transition-colors"
               >
                 Add to Cart
