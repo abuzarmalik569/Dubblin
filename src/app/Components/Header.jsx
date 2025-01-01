@@ -296,7 +296,7 @@ export default function Header() {
                 <Search className="h-5 w-5" />
               </button>
               <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200">
-                <User className="h-5 w-5 mr-2" />
+              <a href="/login"><User className="h-6 w-6" /></a>
 
               </button>
               <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200">

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Header from "./Components/Header";
-import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import BestSelling from "./Components/BestSelling";
 import Categories from "./Components/Categories";
