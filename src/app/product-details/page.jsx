@@ -10,7 +10,7 @@ import { IoCheckmark } from "react-icons/io5";
 import { X } from "lucide-react";
 import { gsap } from "gsap";
 
-const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
+const page = ({ product, onAddToCart, onBuyNow, onClose }) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -542,4 +542,4 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
   );
 };
 
-export default ProductEach;
+export default page ;
