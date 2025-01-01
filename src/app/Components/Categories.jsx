@@ -176,12 +176,12 @@ const Categories = () => {
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-Cinzel">
           Discover Our Categories
         </h2>
-        <p className="text-base md:text-lg font-normal mt-2 tracking-wide md:mt-4 max-w-2xl mx-auto font-Outfit">
+        <p className=' font-Outfit font-medium text-lg text-center  text-black'>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
       </div>
 
-      <div ref={categoriesRef} className="flex overflow-x-auto overflow-y-hidden justify-center gap-0 md:gap-6 mt-8">
+      <div ref={categoriesRef} className="flex overflow-x-auto overflow-y-hidden justify-center gap-0 md:gap-6 mt-3">
         {categories.map(category => (
           <button
             key={category.id}
@@ -208,7 +208,7 @@ const Categories = () => {
 
 < hr />
 
-{/* 
+
       <div className="mt-8 mb-4 flex justify-end items-center">
         <button
           ref={cartIconRef}
@@ -218,7 +218,7 @@ const Categories = () => {
           <ShoppingCart size={20} className="mr-2" />
           <span>{selectedProducts.length}</span>
         </button>
-      </div> */}
+      </div>
 
       <div ref={productsRef} className="grid font-Outfit grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-12 mb-16">
         {filteredProducts.map(product => (

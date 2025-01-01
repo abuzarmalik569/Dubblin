@@ -13,8 +13,8 @@ import Footer from "./Components/Footer";
 export default function Home() {
   return (
    <div>
-    <Header />
-    {/* <Navbar /> */}
+    {/* <Header /> */}
+    
     <Hero/>
     <BestSelling />
     <Categories />
@@ -22,7 +22,7 @@ export default function Home() {
     <NewArrivels />
     <About />
     <InstagramReels />
-    <Footer />
+    {/* <Footer /> */}
    </div>
   );
 }

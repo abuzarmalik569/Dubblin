@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 
 const Outfit = localFont({
@@ -27,7 +29,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${Outfit.variable} ${Cinzel.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

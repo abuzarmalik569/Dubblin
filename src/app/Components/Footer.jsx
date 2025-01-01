@@ -61,22 +61,30 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div>
-            <ExpandableSection title="Useful Links">
-              <ul className='space-y-2 list-disc text-sm'>
-                {["FAQs", "Terms & Conditions", "Refund and Returns Policy", "Privacy Policy", "PAYMENT FAQs", "SHIPPING POLICY"].map((item, index) => (
-                  <li key={index}><a href="#" className="hover:underline">{item}</a></li>
-                ))}
-              </ul>
-            </ExpandableSection>
-            <div className="hidden md:block">
-              <h3 className='mb-4 text-lg font-semibold'>Useful Links</h3>
-              <ul className='space-y-2 list-disc text-sm'>
-                {["FAQs", "Terms & Conditions", "Refund and Returns Policy", "Privacy Policy", "PAYMENT FAQs", "SHIPPING POLICY"].map((item, index) => (
-                  <li key={index}><a href="#" className="hover:underline">{item}</a></li>
-                ))}
-              </ul>
-            </div>
-          </div>
+  <ExpandableSection title="Useful Links">
+    <ul className='space-y-2 list-disc text-sm'>
+    <li><a href="/shop" className="hover:underline">Shop</a></li>
+      <li><a href="/faqs" className="hover:underline">FAQs</a></li>
+      <li><a href="/terms-and-conditions" className="hover:underline">Terms & Conditions</a></li>
+      <li><a href="/return-policy" className="hover:underline">Refund and Returns Policy</a></li>
+      <li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
+      <li><a href="/shipping-policy" className="hover:underline">Shipping Policy</a></li>
+    </ul>
+  </ExpandableSection>
+  <div className="hidden md:block">
+    <h3 className='mb-4 text-lg font-semibold'>Useful Links</h3>
+    <ul className='space-y-2 list-disc text-sm'>
+    <li><a href="/shop" className="hover:underline">Shop</a></li>
+      <li><a href="/faqs" className="hover:underline">FAQs</a></li>
+      <li><a href="/terms-and-conditions" className="hover:underline">Terms & Conditions</a></li>
+      <li><a href="/return-policy" className="hover:underline">Refund and Returns Policy</a></li>
+      <li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
+
+      <li><a href="/shipping-policy" className="hover:underline">Shipping Policy</a></li>
+    </ul>
+  </div>
+</div>
+
 
           {/* Contact Us */}
           <div>
