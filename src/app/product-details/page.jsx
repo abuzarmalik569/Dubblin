@@ -12,7 +12,7 @@ import { gsap } from "gsap";
 
 const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const headingRef = useRef(null);
   const productsRef = useRef(null);
@@ -38,7 +38,7 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
     const containerWidth = productsRef.current.offsetWidth;
     const cardWidth = containerWidth / (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
     const maxIndex = products.length - (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
-    
+
     if (direction === 'left' && currentIndex > 0) {
       setCurrentIndex(prev => Math.max(0, prev - 1));
     } else if (direction === 'right' && currentIndex < maxIndex) {
@@ -46,44 +46,44 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
     }
   };
 
-//   const handleAddToCart = (product, color, size, quantity) => {
-//     console.log('Added to cart:', { product, color, size, quantity });
-//     // Implement your add to cart logic here
-//   };
+  //   const handleAddToCart = (product, color, size, quantity) => {
+  //     console.log('Added to cart:', { product, color, size, quantity });
+  //     // Implement your add to cart logic here
+  //   };
 
-//   const handleBuyNow = (product, color, size, quantity) => {
-//     console.log('Buy now:', { product, color, size, quantity });
-//     // Implement your buy now logic here
-//   };
+  //   const handleBuyNow = (product, color, size, quantity) => {
+  //     console.log('Buy now:', { product, color, size, quantity });
+  //     // Implement your buy now logic here
+  //   };
 
   useEffect(() => {
-      const ctx = gsap.context(() => {
-        gsap.fromTo(headingRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1, scrollTrigger: { trigger: headingRef.current, start: "top bottom", end: "bottom center", toggleActions: "play none none reverse" } }
-        );
-  
-        gsap.fromTo(productsRef.current.children,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: productsRef.current, start: "top bottom-=100", end: "bottom center", toggleActions: "play none none reverse" } }
-        );
-      });
-  
-      return () => ctx.revert();
-    }, []);
-  
-    useEffect(() => {
-      const handleResize = () => {
-        const containerWidth = productsRef.current.offsetWidth;
-        const cardWidth = containerWidth / (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
-        gsap.to(productsRef.current, { x: -cardWidth * currentIndex, duration: 0.5, ease: "power2.out" });
-      };
-  
-      window.addEventListener('resize', handleResize);
-      handleResize();
-  
-      return () => window.removeEventListener('resize', handleResize);
-    }, [currentIndex]);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(headingRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1, scrollTrigger: { trigger: headingRef.current, start: "top bottom", end: "bottom center", toggleActions: "play none none reverse" } }
+      );
+
+      gsap.fromTo(productsRef.current.children,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: productsRef.current, start: "top bottom-=100", end: "bottom center", toggleActions: "play none none reverse" } }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const containerWidth = productsRef.current.offsetWidth;
+      const cardWidth = containerWidth / (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
+      gsap.to(productsRef.current, { x: -cardWidth * currentIndex, duration: 0.5, ease: "power2.out" });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentIndex]);
 
   const colors = [
     {
@@ -135,7 +135,7 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
     { id: 12, image: "/dubblinbottle.png", basePrice: 950 }
   ];
 
-  const [selectedBottle, setSelectedBottle] = useState(product || bottles[0]);
+  const [selectedBottle, setSelectedBottle] = useState(bottles[0]);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
   const [capacity, setCapacity] = useState(sizes[0]);
@@ -191,8 +191,7 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
       yoyo: true,
       repeat: 1,
       ease: "power2.inOut",
-      onComplete: () =>
-        onAddToCart(product, selectedColor.name, selectedSize, quantity)
+      // onComplete: () => onAddToCart(product, selectedColor.name, selectedSize, quantity)
     });
   };
 
@@ -203,8 +202,7 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
       yoyo: true,
       repeat: 1,
       ease: "power2.inOut",
-      onComplete: () =>
-        onBuyNow(product, selectedColor.name, selectedSize, quantity)
+      // onComplete: () => onBuyNow(product, selectedColor.name, selectedSize, quantity)
     });
   };
 
@@ -255,11 +253,10 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
                 <div key={bottle.id} className="flex-none">
                   <button
                     onClick={() => setSelectedBottle(bottle)}
-                    className={`relative overflow-hidden rounded-lg transition-all duration-300 ${
-                      selectedBottle.id === bottle.id
+                    className={`relative overflow-hidden rounded-lg transition-all duration-300 ${selectedBottle.id === bottle.id
                         ? "ring-2 ring-blue-500 scale-110"
                         : "hover:scale-105"
-                    }`}
+                      }`}
                   >
                     <Image
                       src={bottle.image}
@@ -348,17 +345,15 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
                     setSelectedSize(size);
                     setCapacity(size);
                   }}
-                  className={`px-1 flex items-center ${
-                    selectedSize === size
+                  className={`px-1 flex items-center ${selectedSize === size
                       ? "bg-pink-300 text-pink-600 border-pink-600 border"
                       : "bg-gray-100 text-gray-800 border-gray-100 border"
-                  }`}
+                    }`}
                 >
                   <div className="p-1">
                     <div
-                      className={`rounded-full p-2 ${
-                        selectedSize === size ? "bg-pink-600" : "bg-gray-100"
-                      }`}
+                      className={`rounded-full p-2 ${selectedSize === size ? "bg-pink-600" : "bg-gray-100"
+                        }`}
                     ></div>
                   </div>
                   <div className="text-sm">{size}</div>
@@ -474,70 +469,70 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 font-Outfit text-black">
-      <h2 ref={headingRef} className="text-2xl md:text-3xl lg:text-4xl font-semibold font-Cinzel text-center">
-        New Arrivals
-      </h2>
-      <p className='font-Outfit font-medium text-lg text-center mb-5 text-black'>Discover our exciting New Arrivals</p>
-      <div className="relative overflow-hidden">
-        <div ref={productsRef} className="flex transition-transform duration-500 ease-out">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-2"
-              onClick={() => setSelectedProduct(product)}
-            >
-              <div className="group relative cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                </div>
-                <div className="p-4 bg-white">
-                  <h3 className="text-lg font-medium mb-2 line-clamp-2">{product.name}</h3>
-                  <div className="flex items-center mt-8 justify-between">
-                    <span className="text-lg font-semibold">
-                      &#8377;{product.price.toFixed(2)}
-                    </span>
-                    <span className="text-pink-700 line-through text-lg">
-                      &#8377;{product.oldPrice.toFixed(2)}
-                    </span>
+        <h2 ref={headingRef} className="text-2xl md:text-3xl lg:text-4xl font-semibold font-Cinzel text-center">
+          New Arrivals
+        </h2>
+        <p className='font-Outfit font-medium text-lg text-center mb-5 text-black'>Discover our exciting New Arrivals</p>
+        <div className="relative overflow-hidden">
+          <div ref={productsRef} className="flex transition-transform duration-500 ease-out">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-2"
+                onClick={() => setSelectedProduct(product)}
+              >
+                <div className="group relative cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-4 bg-white">
+                    <h3 className="text-lg font-medium mb-2 line-clamp-2">{product.name}</h3>
+                    <div className="flex items-center mt-8 justify-between">
+                      <span className="text-lg font-semibold">
+                        &#8377;{product.price.toFixed(2)}
+                      </span>
+                      <span className="text-pink-700 line-through text-lg">
+                        &#8377;{product.oldPrice.toFixed(2)}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <button
+            onClick={() => handleSwipe('left')}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
+            aria-label="Previous product"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={() => handleSwipe('right')}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
+            aria-label="Next product"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
-        <button
-          onClick={() => handleSwipe('left')}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
-          aria-label="Previous product"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={() => handleSwipe('right')}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
-          aria-label="Next product"
-        >
-          <ChevronRight size={24} />
-        </button>
-      </div>
 
-      {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <ProductEach
-            product={selectedProduct}
-            onAddToCart={handleAddToCart}
-            onBuyNow={handleBuyNow}
-            onClose={() => setSelectedProduct(null)}
-          />
-        </div>
-      )}
-    </div>
+        {selectedProduct && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <ProductEach
+            // product={selectedProduct}
+            // onAddToCart={handleAddToCart}
+            // onBuyNow={handleBuyNow}
+            // onClose={() => setSelectedProduct(null)}
+            />
+          </div>
+        )}
+      </div>
     </>
   );
 };
