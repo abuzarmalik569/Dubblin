@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Header from "./Components/Header";
-import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import BestSelling from "./Components/BestSelling";
 import Categories from "./Components/Categories";
@@ -13,8 +12,8 @@ import Footer from "./Components/Footer";
 export default function Home() {
   return (
    <div>
-    <Header />
-    {/* <Navbar /> */}
+    {/* <Header /> */}
+    
     <Hero/>
     <BestSelling />
     <Categories />
@@ -22,7 +21,7 @@ export default function Home() {
     <NewArrivels />
     <About />
     <InstagramReels />
-    <Footer />
+    {/* <Footer /> */}
    </div>
   );
 }

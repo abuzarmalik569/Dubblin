@@ -1,18 +1,12 @@
 // "use client"
 // import React, { useState, useEffect, useRef } from 'react';
 // import Image from 'next/image';
-// import ProductEach from './ProductEach'
+// import ProductEach from './ProductEach';
 // import { gsap } from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import { X, ChevronRight, Check, Trash2 } from 'lucide-react';
+// import { X, ChevronRight, Check, Trash2, ShoppingCart } from 'lucide-react';
 
 // const Categories = () => {
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       gsap.registerPlugin(ScrollTrigger);
-//     }
-//   }, []);
-
 //   const categories = [
 //     { 
 //       id: 'all', 
@@ -66,117 +60,18 @@
 //   const [activeCategory, setActiveCategory] = useState('all');
 //   const [selectedProducts, setSelectedProducts] = useState([]);
 //   const [activeProduct, setActiveProduct] = useState(null);
-//   const [selectionStep, setSelectionStep] = useState(0);
+//   const [showCart, setShowCart] = useState(false);
 //   const headingRef = useRef(null);
 //   const categoriesRef = useRef(null);
 //   const productsRef = useRef(null);
 //   const popupRef = useRef(null);
+//   const cartIconRef = useRef(null);
 
-//   const filteredProducts = activeCategory === 'all'
-//     ? products
-//     : products.filter(product => product.category === activeCategory);
-
-//   const handleCategoryClick = (categoryId) => {
-//     // Animate out current category icons
-//     gsap.to(categoriesRef.current.children, {
-//       scale: 0.95,
-//       opacity: 0.7,
-//       duration: 0.2,
-//       stagger: 0.05,
-//     });
-
-//     // Set new active category
-//     setActiveCategory(categoryId);
-
-//     // Animate in new category icons
-//     gsap.to(categoriesRef.current.children, {
-//       scale: 1,
-//       opacity: 1,
-//       duration: 0.3,
-//       delay: 0.2,
-//       stagger: 0.05,
-//       ease: "back.out(1.7)",
-//     });
-//   };
-
-//   const openProductSelection = (product) => {
-//     setActiveProduct(product);
-//     setSelectionStep(1);
-//     gsap.to(popupRef.current, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" });
-//   };
-
-//   const closeProductSelection = () => {
-//     gsap.to(popupRef.current, { 
-//       autoAlpha: 0, 
-//       y: 20, 
-//       duration: 0.3, 
-//       ease: "power2.in",
-//       onComplete: () => {
-//         setActiveProduct(null);
-//         setSelectionStep(0);
-//       }
-//     });
-//   };
-
-//   const handleColorSelect = (color) => {
-//     setActiveProduct(prev => ({ ...prev, selectedColor: color }));
-//     setSelectionStep(2);
-//   };
-
-//   const handleSizeSelect = (size) => {
-//     const updatedProduct = { 
-//       ...activeProduct, 
-//       selectedColor: activeProduct.selectedColor, 
-//       selectedSize: size,
-//       uniqueId: Date.now()
-//     };
-//     setSelectedProducts(prev => [...prev, updatedProduct]);
-//     closeProductSelection();
-//   };
-
-//   const toggleProductSelection = (product) => {
-//     openProductSelection(product);
-//   };
-
-//   const deselectProduct = (uniqueId) => {
-//     setSelectedProducts(prev => prev.filter(p => p.uniqueId !== uniqueId));
-//     gsap.to(`#product-${uniqueId}`, {
-//       scale: 0.95,
-//       opacity: 0.7,
-//       duration: 0.2,
-//       yoyo: true,
-//       repeat: 1,
-//       ease: "power2.inOut"
-//     });
-//   };
-
-//   const isProductSelected = (productId) => {
-//     return selectedProducts.some(p => p.id === productId);
-//   };
-
-//   const getProductSelections = (productId) => {
-//     return selectedProducts.filter(p => p.id === productId);
-//   };
-
-//   const scrollToProduct = (productId) => {
-//     const productElement = document.getElementById(`product-${productId}`);
-//     if (productElement) {
-//       productElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-//       gsap.to(productElement, {
-//         scale: 1.05,
-//         duration: 0.3,
-//         yoyo: true,
-//         repeat: 1,
-//         ease: "power2.inOut"
-//       });
+//   useEffect(() => {
+//     if (typeof window !== 'undefined') {
+//       gsap.registerPlugin(ScrollTrigger);
 //     }
-//     closeProductSelection();
-//   };
-
-//   const goToCart = () => {
-//     console.log("Going to cart with selected products:", selectedProducts);
-//     alert("Going to cart! This is where you'd implement the cart view.");
-//   };
+//   }, []);
 
 //   useEffect(() => {
 //     const ctx = gsap.context(() => {
@@ -204,18 +99,101 @@
 //     return () => ctx.revert();
 //   }, []);
 
+//   useEffect(() => {
+//     if (showCart) {
+//       document.body.style.overflow = 'hidden';
+//     } else {
+//       document.body.style.overflow = 'unset';
+//     }
+
+//     return () => {
+//       document.body.style.overflow = 'unset';
+//     };
+//   }, [showCart]);
+
+//   const handleCategoryClick = (categoryId) => {
+//     gsap.to(categoriesRef.current.children, {
+//       scale: 0.95,
+//       opacity: 0.7,
+//       duration: 0.2,
+//       stagger: 0.05,
+//     });
+
+//     setActiveCategory(categoryId);
+
+//     gsap.to(categoriesRef.current.children, {
+//       scale: 1,
+//       opacity: 1,
+//       duration: 0.3,
+//       delay: 0.2,
+//       stagger: 0.05,
+//       ease: "back.out(1.7)",
+//     });
+//   };
+
+//   const openProductSelection = (product) => {
+//     setActiveProduct(product);
+//     gsap.to(popupRef.current, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" });
+//   };
+
+//   const closeProductSelection = () => {
+//     gsap.to(popupRef.current, { 
+//       autoAlpha: 0, 
+//       y: 20, 
+//       duration: 0.3, 
+//       ease: "power2.in",
+//       onComplete: () => {
+//         setActiveProduct(null);
+//       }
+//     });
+//   };
+
+//   const addToCart = (product, color, size, quantity) => {
+//     const newItem = {
+//       ...product,
+//       selectedColor: color,
+//       selectedSize: size,
+//       quantity: quantity,
+//       uniqueId: Date.now()
+//     };
+//     setSelectedProducts(prev => [...prev, newItem]);
+//     closeProductSelection();
+
+//     // GSAP animation for adding to cart
+//     gsap.to(cartIconRef.current, {
+//       scale: 1.5,
+//       duration: 0.2,
+//       yoyo: true,
+//       repeat: 1,
+//       ease: "power2.inOut"
+//     });
+//   };
+
+//   const removeFromCart = (uniqueId) => {
+//     setSelectedProducts(prev => prev.filter(item => item.uniqueId !== uniqueId));
+//   };
+
+//   const buyNow = (product, color, size, quantity) => {
+//     addToCart(product, color, size, quantity);
+//     setShowCart(true);
+//   };
+
+//   const filteredProducts = products.filter(product => 
+//     activeCategory === 'all' || product.category === activeCategory
+//   );
+
 //   return (
-//     <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 text-black">
+//     <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8  text-black">
 //       <div ref={headingRef} className="text-center mt-8 md:mt-14">
 //         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-Cinzel">
 //           Discover Our Categories
 //         </h2>
-//         <p className="text-base md:text-lg font-normal mt-2 tracking-wide md:mt-4 max-w-2xl mx-auto font-Outfit">
+//         <p className=' font-Outfit font-medium text-lg text-center  text-black'>
 //           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 //         </p>
 //       </div>
 
-//       <div ref={categoriesRef} className="flex flex-wrap justify-center gap-0 md:gap-6">
+//       <div ref={categoriesRef} className="flex overflow-x-auto overflow-y-hidden justify-start md:justify-center gap-0 md:gap-6 mt-3">
 //         {categories.map(category => (
 //           <button
 //             key={category.id}
@@ -240,16 +218,25 @@
 //         ))}
 //       </div>
 
+//       <hr />
+
+//       <div className="mt-8 mb-4 flex justify-end items-center">
+//         <button
+//           ref={cartIconRef}
+//           onClick={() => setShowCart(true)}
+//           className="bg-pink-500 text-white px-4 py-2 rounded-full flex items-center"
+//         >
+//           <ShoppingCart size={20} className="mr-2" />
+//           <span>{selectedProducts.length}</span>
+//         </button>
+//       </div>
+
 //       <div ref={productsRef} className="grid font-Outfit grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-12 mb-16">
-//         {/* Rest of the products section remains the same */}
 //         {filteredProducts.map(product => (
 //           <div 
 //             key={product.id}
-//             id={`product-${product.id}`}
-//             className={`group relative cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg ${
-//               isProductSelected(product.id) ? 'ring-2 ring-pink-500' : ''
-//             }`}
-//             onClick={() => toggleProductSelection(product)}
+//             className="group relative cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+//             onClick={() => openProductSelection(product)}
 //           >
 //             <div className="relative aspect-square overflow-hidden">
 //               <Image
@@ -264,11 +251,6 @@
 //                   {product.badge}
 //                 </div>
 //               )}
-//               {isProductSelected(product.id) && (
-//                 <div className="absolute top-2 right-2 bg-pink-500 text-white p-1 rounded-full z-10">
-//                   <Check size={16} />
-//                 </div>
-//               )}
 //             </div>
             
 //             <div className="p-4 bg-white">
@@ -278,43 +260,12 @@
 
 //               <div className="flex items-center justify-between">
 //                 <span className="text-lg font-semibold">
-//                 &#8377;.{product.price.toFixed(2)}
+//                 &#8377;{product.price.toFixed(2)}
 //                 </span>
 //                 <span className="text-pink-700 line-through text-sm">
-//                 &#8377;.{product.oldPrice.toFixed(2)}
+//                 &#8377;{product.oldPrice.toFixed(2)}
 //                 </span>
 //               </div>
-
-//               {isProductSelected(product.id) && (
-//                 <div className="mt-2 flex flex-col gap-2">
-//                   {getProductSelections(product.id).map((selection, index) => (
-//                     <div key={selection.uniqueId} className="flex justify-between items-center">
-//                       <div className="text-sm text-gray-600">
-//                         {selection.selectedColor}, {selection.selectedSize}
-//                       </div>
-//                       <button
-//                         onClick={(e) => {
-//                           e.stopPropagation();
-//                           deselectProduct(selection.uniqueId);
-//                         }}
-//                         className="text-red-500 hover:text-red-700"
-//                         aria-label="Deselect product"
-//                       >
-//                         <Trash2 size={18} />
-//                       </button>
-//                     </div>
-//                   ))}
-//                   <button
-//                     onClick={(e) => {
-//                       e.stopPropagation();
-//                       goToCart();
-//                     }}
-//                     className="w-full bg-pink-500 text-white py-1 px-2 rounded hover:bg-pink-600 transition-colors"
-//                   >
-//                     Go to cart
-//                   </button>
-//                 </div>
-//               )}
 //             </div>
 //           </div>
 //         ))}
@@ -323,22 +274,91 @@
 //       {/* Selection Popup */}
 //       {activeProduct && (
 //         <div 
-//         ref={popupRef}
-//         className="fixed inset-0 font-Outfit flex items-center justify-center bg-black bg-opacity-50 z-50 invisible"
-//         onClick={closeProductSelection}
-//       >
-//        <ProductEach />
-//       </div>
-//     )}
-//   </div>
-// );
+//           ref={popupRef}
+//           className="fixed inset-0 font-Outfit flex items-center justify-center bg-black bg-opacity-50 z-50 invisible"
+//           onClick={closeProductSelection}
+//         >
+//           <ProductEach 
+//             product={activeProduct}
+//             onAddToCart={addToCart}
+//             onBuyNow={buyNow}
+//             onClose={closeProductSelection}
+//           />
+//         </div>
+//       )}
+
+//       {/* Cart Popup */}
+//       {showCart && (
+//         <div className="fixed inset-0 h-screen font-Outfit border  bg-black bg-opacity-50 flex items-center justify-end z-50 mx-auto container">
+//           <div className="bg-white border p-6 rounded-lg w-screen md:w-2/5 h-screen overflow-y-auto container">
+//             <div className="flex items-center justify-between mb-3">
+//               <h2 className="text-3xl font-normal">Cart</h2>
+//               <button
+//                 onClick={() => setShowCart(false)}
+//                 className="text-gray-500 hover:text-gray-700"
+//               >
+//                 <X size={34} />
+//               </button>
+//             </div>
+//             <hr className="border-t-2 border-black" />
+//             <div className="overflow-y-auto mt-2 h-[69%] no-scrollbar">
+//               {selectedProducts.map((item) => (
+//                 <div
+//                   key={item.uniqueId}
+//                   className="flex items-center justify-between border border-black rounded-md mt-4 mb-4 py-2 p-2"
+//                 >
+//                   <div className="flex justify-start gap-5 items-center">
+//                     <div>
+//                       <img
+//                         src={item.image}
+//                         alt={item.name}
+//                         className="w-28 h-28"
+//                       />
+//                     </div>
+//                     <div className="space-y-3">
+//                       <h3 className="font-semibold">{item.name}</h3>
+//                       <p className="font-bold">
+//                         &#8377;{(item.price * item.quantity).toFixed(2)}
+//                       </p>
+//                       <p>Quantity: {item.quantity}</p>
+//                     </div>
+//                   </div>
+//                   <div>
+//                     <button
+//                       onClick={() => removeFromCart(item.uniqueId)}
+//                       className="text-red-500 hover:text-red-700"
+//                     >
+//                       <Trash2 />
+//                     </button>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//             <hr className="border-b-2 border-black items-center" />
+//             <div className="p-2 bg-white  mt-2 flex justify-between">
+//               <p className="text-xl font-normal">Subtotal </p>
+//               <p className="text-xl font-normal block">
+//                 &#8377;
+//                 {selectedProducts
+//                   .reduce(
+//                     (total, item) => total + item.price * item.quantity,
+//                     0
+//                   )
+//                   .toFixed(2)}
+//               </p>
+//             </div>
+//             <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto'>CHECKOUT</button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
 // };
 
 // export default Categories;
 
-
 "use client"
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import ProductEach from './ProductEach';
 import { gsap } from 'gsap';
@@ -401,6 +421,7 @@ const Categories = () => {
   const [activeProduct, setActiveProduct] = useState(null);
   const [showCart, setShowCart] = useState(false);
   const headingRef = useRef(null);
+  const [quantity, setQuantity] = useState(1);
   const categoriesRef = useRef(null);
   const productsRef = useRef(null);
   const popupRef = useRef(null);
@@ -437,6 +458,18 @@ const Categories = () => {
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    if (showCart) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showCart]);
 
   const handleCategoryClick = (categoryId) => {
     gsap.to(categoriesRef.current.children, {
@@ -510,17 +543,17 @@ const Categories = () => {
   );
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 text-black">
+    <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8  text-black">
       <div ref={headingRef} className="text-center mt-8 md:mt-14">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-Cinzel">
           Discover Our Categories
         </h2>
-        <p className="text-base md:text-lg font-normal mt-2 tracking-wide md:mt-4 max-w-2xl mx-auto font-Outfit">
+        <p className=' font-Outfit font-medium text-lg text-center  text-black'>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
       </div>
 
-      <div ref={categoriesRef} className="flex flex-wrap justify-center gap-0 md:gap-6 mt-8">
+      <div ref={categoriesRef} className="flex overflow-x-auto overflow-y-hidden justify-start md:justify-center gap-0 md:gap-6 mt-3">
         {categories.map(category => (
           <button
             key={category.id}
@@ -542,12 +575,12 @@ const Categories = () => {
               {category.name}
             </span>
           </button>
-          
         ))}
       </div>
 
+      <hr />
 
-      {/* <div className="mt-8 mb-4 flex justify-end items-center">
+      <div className="mt-8 mb-4 flex justify-end items-center">
         <button
           ref={cartIconRef}
           onClick={() => setShowCart(true)}
@@ -556,7 +589,7 @@ const Categories = () => {
           <ShoppingCart size={20} className="mr-2" />
           <span>{selectedProducts.length}</span>
         </button>
-      </div> */}
+      </div>
 
       <div ref={productsRef} className="grid font-Outfit grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-12 mb-16">
         {filteredProducts.map(product => (
@@ -616,36 +649,78 @@ const Categories = () => {
 
       {/* Cart Popup */}
       {showCart && (
-        <div className="fixed inset-0 font-Outfit bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
-            {selectedProducts.map(item => (
-              <div key={item.uniqueId} className="flex items-center justify-between border-b py-2">
-                <div>
-                  <h3 className="font-semibold">{item.name}</h3>
-                  <p>Color: {item.selectedColor}, Size: {item.selectedSize}</p>
-                  <p>Quantity: {item.quantity}</p>
-                </div>
-                <div>
-                  <p className="font-bold">&#8377;{(item.price * item.quantity).toFixed(2)}</p>
-                  <button
-                    onClick={() => removeFromCart(item.uniqueId)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
-            <div className="mt-4 flex justify-between items-center">
-              <p className="text-xl font-bold">Total: &#8377;{selectedProducts.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</p>
+        <div className="fixed inset-0 h-screen font-Outfit border  bg-black bg-opacity-50 flex items-center justify-end z-50 mx-auto container">
+          <div className="bg-white border p-6 rounded-lg w-screen md:w-2/5 h-screen overflow-y-auto container">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-3xl font-normal">Cart</h2>
               <button
                 onClick={() => setShowCart(false)}
-                className="bg-pink-500 text-white px-4 py-2 rounded-full"
+                className="text-gray-500 hover:text-gray-700"
               >
-                Close
+                <X size={34} />
               </button>
             </div>
+            <hr className="border-t-2 border-black" />
+            <div className="overflow-y-auto mt-2 h-[69%] no-scrollbar">
+              {selectedProducts.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full">
+                  <ShoppingCart size={64} className="text-gray-400 mb-4 animate-bounce" />
+                  <p className="text-xl font-semibold text-gray-600 animate-pulse">Your cart is empty</p>
+                </div>
+              ) : (
+                selectedProducts.map((item) => (
+                  <div
+                    key={item.uniqueId}
+                    className="flex items-center justify-between border border-black rounded-md mt-4 mb-4 py-2 p-2"
+                  >
+                    <div className="flex justify-start gap-5 items-center">
+                      <div>
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-28 h-28"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <h3 className="font-semibold">{item.name}</h3>
+                        <p className="font-bold">
+                          &#8377;{(item.price * item.quantity).toFixed(2)}
+                        </p>
+                        <div className="flex items-center">
+                            <div className="flex items-center border">
+                                <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="bg-gray-200 px-3 text-xl">-</button>
+                                <p className="px-3 text-md">{quantity}</p>
+                                <button onClick={() => setQuantity(q => q + 1)} className="bg-gray-200 px-3 text-xl">+</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => removeFromCart(item.uniqueId)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Trash2 />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+            <hr className="border-b-2 border-black items-center" />
+            <div className="p-2 bg-white  mt-2 flex justify-between">
+              <p className="text-xl font-normal">Subtotal </p>
+              <p className="text-xl font-normal block">
+                &#8377;
+                {selectedProducts
+                  .reduce(
+                    (total, item) => total + item.price * item.quantity,
+                    0
+                  )
+                  .toFixed(2)}
+              </p>
+            </div>
+            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={selectedProducts.length === 0}>CHECKOUT</button>
           </div>
         </div>
       )}

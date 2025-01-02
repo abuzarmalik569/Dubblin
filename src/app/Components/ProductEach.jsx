@@ -48,7 +48,7 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
     const addToCartButtonRef = useRef(null);
     const buyNowButtonRef = useRef(null);
 
-    const calculatePrice = (basePrice, size, color) => {
+    const calculatePrice = ( size, color) => {
         const sizeMultiplier = {
             '150ml': 1,
             '500ml': 1.2,
@@ -57,11 +57,11 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
             '1000ml': 1.8
         };
         const colorMultiplier = colors.find(c => c.name === color.name)?.priceMultiplier || 1;
-        return basePrice * sizeMultiplier[size] * colorMultiplier;
+        return sizeMultiplier[size] * colorMultiplier;
     };
 
     const currentPrice = useMemo(() => {
-        return calculatePrice(selectedBottle.basePrice, selectedSize, selectedColor);
+        return calculatePrice( selectedSize, selectedColor);
     }, [selectedBottle, selectedSize, selectedColor]);
 
     const handleImageClick = () => {
@@ -108,20 +108,29 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
 
     return (
         // <div className="bg-white inset-10  flex flex-col md:flex-row p-4 md:p-8 justify-evenly max-w-6xl mx-auto relative">
-        //     <button 
-        //         onClick={onClose}
-        //         className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-        //     >
-        //         <X size={24} />
-        //     </button>
+        //    
 
-        <div className='bg-white flex flex-wrap overflow-x-hidden  md:h-[90vh] h-full w-screen  md:m-10 m-0 overflow-y-auto justify-evenly rounded-lg'  onClick={(e) => e.stopPropagation()}>
-
+//         <button 
+//         onClick={onClose}
+//         className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+//     >
+//         <X size={24} />
+//  </button>
+        <div className='bg-white  overflow-x-hidden  md:h-[90vh] h-full w-screen  md:m-10 m-0 overflow-y-auto justify-evenly rounded-lg p-2'  onClick={(e) => e.stopPropagation()}>
+             <div className=' text-xl p-2 flex justify-end'>
+             <button 
+                 onClick={onClose}
+                 className=" text-gray-500 hover:text-gray-700"
+             >
+                 <X size={24} />
+          </button>
+             </div>
       
-            <div className="w-full md:w-2/5 mb-6 md:mb-0 m-10  mx-auto">
+         <div className='flex flex-wrap'>
+         <div className="w-full md:w-1/2 mb-6 md:mb-0 mt-5 px-5">
                 <div 
                     className="flex justify-center relative overflow-hidden"
-                    style={{ height: '600px' }}
+                    // style={{ maxHeight: '600px' }}
                     onMouseEnter={() => setIsHovering(true)}
                     onMouseLeave={() => {
                         setIsHovering(false);
@@ -132,12 +141,13 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                     <Image
                         src={selectedBottle.image}
                         alt="Selected bottle"
-                        width={400}
+                        width={600}
                         height={600}
-                        className="transition-transform duration-300 ease-in-out w-full h-full object-contain"
+                        className="transition-transform duration-300 ease-in-out w-full h-4/5 object-contain"
                         style={{ 
                             transform: `scale(${zoomLevel})`,
-                            cursor: isHovering ? 'zoom-in' : 'auto'
+                            cursor: isHovering ? 'zoom-in' : 'auto',
+                            // maxHeight: '600px' 
                         }}
                     />
                 </div>
@@ -183,9 +193,14 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                 </div>
             </div>
 
-            <div className="w-full m-10 md:w-2/5">
-                <h1 className="text-xl font-semibold">Custom Ecofriendly Water <br /> Bottles</h1>
-                <div className="space-y-4 mt-12 mb-4 flex flex-col justify-center">
+         
+            <div className="w-full mt-5 md:w-1/2 px-5">
+            <div className=' flex justify-between'>
+                
+                <h1 className="text-xl font-semibold"> <a href="/product-details">Custom Ecofriendly Water Bottles</a></h1>
+
+                </div>
+                <div className="space-y-4 mt-8 mb-8 flex flex-col justify-center">
                     <p className='flex text-sm'><strong className='w-1/4 block'>Available:</strong> <span className='block w-1/4 text-slate-500 font-semibold'>In stock</span></p>
                     <p className='flex text-sm'><strong className='w-1/4 block'>Capacity</strong> <span className='block w-1/4 text-slate-500 font-semibold'>{capacity}</span></p>
                     <p className='flex text-sm'><strong className='w-1/4 block'>Special Feature</strong> <span className='block text-slate-500 font-semibold'>Double Wall Insulated, BPA Free, No Sweat Exterior</span></p>
@@ -263,6 +278,7 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                     </div>
                 </div>
             </div>
+         </div>
          </div>
         
     );
