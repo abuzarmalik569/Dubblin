@@ -279,7 +279,7 @@ const Page = ({ product, onAddToCart, onBuyNow, onClose }) => {
           </div>
         </div>
 
-        <div className="w-full mt-5 md:w-1/2 px-5">
+        <div className="w-full mt-5 text-black   md:w-1/2 px-5">
           <div className=" flex justify-between">
             <h1 className="text-xl font-semibold">
               Custom Ecofriendly Water Bottles
