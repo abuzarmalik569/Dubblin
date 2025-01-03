@@ -1,38 +1,48 @@
 import React from 'react'
 import Image from 'next/image';
-import profiletop from '../../../public/profiletop.png'
+import dash1 from '../../../public/dash1.png'
+import dash2 from '../../../public/dash2.png'
+import dash3 from '../../../public/dash3.png'
+import { MdOutlineDashboard } from "react-icons/md";
+import { CiUser } from "react-icons/ci";
+import { IoLocationOutline } from "react-icons/io5";
+import { GrDocumentTime } from "react-icons/gr";
+
+
+
 
 const page = () => {
   const dashboardItems = [
-    { title: "Lorem Ipsum", image: "/image1.jpg" },
-    { title: "Lorem Ipsum", image: "/image2.jpg" },
-    { title: "Lorem Ipsum", image: "/image3.jpg" },
+    { title: "Lorem Ipsum", image: dash1 },
+    { title: "Lorem Ipsum", image: dash2 },
+    { title: "Lorem Ipsum", image: dash3 },
   ];
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 font-Outfit">
     {/* Header Section */}
     <header style={{backgroundImage: "url('/profiletop.png')"}} className=' p-32 bg-cover bg-center'>
      
     </header>
 
     {/* Main Content */}
-    <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 border">
+    <main className="container mx-auto border">
       <div className="lg:flex gap-8 border">
         {/* Sidebar */}
         <aside className="hidden lg:block lg:w-1/4 bg-white shadow-md rounded-md p-4">
-          <h2 className="text-xl font-semibold mb-4">My Account</h2>
+          <h2 className="text-xl font-semibold text-black mb-4">My Account</h2>
           <nav>
-            <ul className="space-y-4">
-              <li className="text-gray-700 font-medium hover:text-blue-600">
-                Dashboard
+            <ul className="space-y-2">
+              <li className="text-gray-700 font-medium hover:bg-gray-300 p-1 w-1/2 rounded-md  flex items-center gap-4">
+              <MdOutlineDashboard className=' text-xl'/>   Dashboard
               </li>
-              <li className="text-gray-700 hover:text-blue-600">
-                Personal Info
+              <li className="text-gray-700 hover:bg-gray-300 p-1 w-1/2 rounded-md  flex items-center gap-4">
+                <CiUser className=' text-xl'/>    Personal Info
               </li>
-              <li className="text-gray-700 hover:text-blue-600">
-                Addresses
+              <li className="text-gray-700 hover:bg-gray-300 p-1 w-1/2 rounded-md  flex items-center gap-4">
+                <IoLocationOutline className=' text-xl'/>  Addresses
               </li>
-              <li className="text-gray-700 hover:text-blue-600">
+              <li className="text-gray-700 hover:bg-gray-300 p-1 w-1/2 rounded-md  flex items-center gap-4">
+                <GrDocumentTime className=' text-xl'/>
                 Order History
               </li>
             </ul>
@@ -40,8 +50,8 @@ const page = () => {
         </aside>
 
         {/* Main Dashboard Section */}
-        <div className="flex-1">
-          <h2 className="text-2xl font-semibold mb-6">Dashboard</h2>
+        <div className="flex-1 py-4">
+          <h2 className="text-2xl font-semibold text-black mb-6">Dashboard</h2>
 
           {/* Dashboard Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
