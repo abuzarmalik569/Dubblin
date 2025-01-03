@@ -1,11 +1,45 @@
+"use client"
 import React from 'react'
+
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
+import { useRef } from 'react';
+
 
 
 
 
 const page = () => {
+
+  const productsRef = useRef(null);
+
+  const products = [
+    { id: 1, name: 'Custom Eco-friendly Water Bottle', category: 'sports-bottle', image: '/image 8.png', price: 599, oldPrice: 999, badge: 'New', colors: ['red', 'blue', 'green'], sizes: ['S', 'M', 'L'] },
+    { id: 2, name: 'Custom Eco-friendly Mug', category: 'mugs', image: '/image 5.png', price: 599, oldPrice: 999, badge: 'most ordered', colors: ['white', 'black', 'gray'], sizes: ['Standard'] },
+    { id: 3, name: 'Lunch Box', category: 'lunch-box', image: '/image 6.png', price: 599, oldPrice: 999, colors: ['pink', 'blue', 'green'], sizes: ['Small', 'Large'] },
+    { id: 4, name: 'Kettle', category: 'kettles', image: '/image 7.png', price: 599, oldPrice: 999, badge: 'New', colors: ['silver', 'black', 'red'], sizes: ['1L', '1.5L', '2L'] },
+    { id: 5, name: 'Fridge Bottle', category: 'fridge-bottle', image: '/image 8.png', price: 599, oldPrice: 999, colors: ['clear', 'blue', 'green'], sizes: ['500ml', '1L', '2L'] },
+    { id: 6, name: 'Custom Eco-friendly Water Bottle', category: 'sports-bottle', image: '/image 5.png', price: 599, oldPrice: 999, badge: 'most ordered', colors: ['red', 'blue', 'green'], sizes: ['S', 'M', 'L'] },
+    { id: 7, name: 'Custom Eco-friendly Mug', category: 'mugs', image: '/image 6.png', price: 599, oldPrice: 999, colors: ['white', 'black', 'gray'], sizes: ['Standard'] },
+    { id: 8, name: 'Lunch Box', category: 'lunch-box', image: '/image 7.png', price: 599, oldPrice: 999, badge: 'New', colors: ['pink', 'blue', 'green'], sizes: ['Small', 'Large'] },
+    { id: 9, name: 'Custom Eco-friendly Water Bottle', category: 'sports-bottle', image: '/image 8.png', price: 599, oldPrice: 999, badge: 'New', colors: ['red', 'blue', 'green'], sizes: ['S', 'M', 'L'] },
+    { id: 10, name: 'Custom Eco-friendly Mug', category: 'mugs', image: '/image 5.png', price: 599, oldPrice: 999, badge: 'most ordered', colors: ['white', 'black', 'gray'], sizes: ['Standard'] },
+    { id: 11, name: 'Lunch Box', category: 'lunch-box', image: '/image 6.png', price: 599, oldPrice: 999, colors: ['pink', 'blue', 'green'], sizes: ['Small', 'Large'] },
+    { id: 12, name: 'Kettle', category: 'kettles', image: '/image 7.png', price: 599, oldPrice: 999, badge: 'New', colors: ['silver', 'black', 'red'], sizes: ['1L', '1.5L', '2L'] },
+    { id: 13, name: 'Fridge Bottle', category: 'fridge-bottle', image: '/image 8.png', price: 599, oldPrice: 999, colors: ['clear', 'blue', 'green'], sizes: ['500ml', '1L', '2L'] },
+    { id: 14, name: 'Custom Eco-friendly Water Bottle', category: 'sports-bottle', image: '/image 5.png', price: 599, oldPrice: 999, badge: 'most ordered', colors: ['red', 'blue', 'green'], sizes: ['S', 'M', 'L'] },
+    { id: 15, name: 'Custom Eco-friendly Mug', category: 'mugs', image: '/image 6.png', price: 599, oldPrice: 999, colors: ['white', 'black', 'gray'], sizes: ['Standard'] },
+    { id: 16, name: 'Lunch Box', category: 'lunch-box', image: '/image 7.png', price: 599, oldPrice: 999, badge: 'New', colors: ['pink', 'blue', 'green'], sizes: ['Small', 'Large'] },
+    { id: 17, name: 'Custom Eco-friendly Water Bottle', category: 'sports-bottle', image: '/image 8.png', price: 599, oldPrice: 999, badge: 'New', colors: ['red', 'blue', 'green'], sizes: ['S', 'M', 'L'] },
+    { id: 18, name: 'Custom Eco-friendly Mug', category: 'mugs', image: '/image 5.png', price: 599, oldPrice: 999, badge: 'most ordered', colors: ['white', 'black', 'gray'], sizes: ['Standard'] },
+    { id: 19, name: 'Lunch Box', category: 'lunch-box', image: '/image 6.png', price: 599, oldPrice: 999, colors: ['pink', 'blue', 'green'], sizes: ['Small', 'Large'] },
+    { id: 20, name: 'Kettle', category: 'kettles', image: '/image 7.png', price: 599, oldPrice: 999, badge: 'New', colors: ['silver', 'black', 'red'], sizes: ['1L', '1.5L', '2L'] },
+    { id: 21, name: 'Fridge Bottle', category: 'fridge-bottle', image: '/image 8.png', price: 599, oldPrice: 999, colors: ['clear', 'blue', 'green'], sizes: ['500ml', '1L', '2L'] },
+    { id: 22, name: 'Custom Eco-friendly Water Bottle', category: 'sports-bottle', image: '/image 5.png', price: 599, oldPrice: 999, badge: 'most ordered', colors: ['red', 'blue', 'green'], sizes: ['S', 'M', 'L'] },
+    { id: 23, name: 'Custom Eco-friendly Mug', category: 'mugs', image: '/image 6.png', price: 599, oldPrice: 999, colors: ['white', 'black', 'gray'], sizes: ['Standard'] },
+    { id: 24, name: 'Lunch Box', category: 'lunch-box', image: '/image 7.png', price: 599, oldPrice: 999, badge: 'New', colors: ['pink', 'blue', 'green'], sizes: ['Small', 'Large'] },
+  ];
+
   return (
     <div className=' text-black font-Outfit'>
       <div className='w-full h-56 mb-20' style={{
@@ -22,7 +56,7 @@ const page = () => {
         </div>
       </div>
       {/* next  */}
-      <div className=' justify-evenly flex'>
+      <div className='flex justify-evenly'>
         {/* left  */}
       <div className='text-left mb-20 w-64'>
         {/* categories  */}
@@ -207,18 +241,65 @@ const page = () => {
 
       </div>
       {/* right  */}
-      <div>
+      <div className=' w-3/4'>
         {/* banner  */}
+        <h1 className='font-medium text-2xl mb-5'>Feature product(9)</h1>
         <div className=' flex'>
-          <div className=' border'>
-            <Image src="/rightbanner.png" width={570} height={300} />
+         
+          <div className='items-center '>
+          
+            <Image src="/rightbanner.png" width={614} height={300} />
           </div>
           <div>
-            <Image src="/leftbanner.png" width={500} height={300}/>
+            <Image src="/leftbanner.png" width={535} height={300}/>
           </div>
         </div>
+<div className=' flex justify-end items-center gap-5 mt-5'>
+  <p className=' text-pink-800'>Shot by:</p>
+  <p>best selling</p>
+  <ChevronDown />
+</div>
+        {/* product  */}
         <div>
+  <div ref={productsRef} className="grid  font-Outfit grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-5 mb-16">
+        {products.map(product => (
+          <div 
+            key={product.id}
+            className="group relative cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+            onClick={() => openProductSelection(product)}
+          >
+            <div className="relative aspect-square overflow-hidden">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              />
+              {product.badge && (
+                <div className="absolute top-2 left-2 bg-pink-500 text-white px-2 py-1 rounded-full text-xs font-semibold z-10">
+                  {product.badge}
+                </div>
+              )}
+            </div>
+            
+            <div className="p-4 bg-white">
+              <h3 className="text-lg font-medium mb-2 line-clamp-2">
+                {product.name}
+              </h3>
 
+              <div className="flex items-center justify-between">
+                <span className="text-lg font-semibold">
+                &#8377;{product.price.toFixed(2)}
+                </span>
+                <span className="text-pink-700 line-through text-sm">
+                &#8377;{product.oldPrice.toFixed(2)}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
         </div>
       </div>
       </div>
