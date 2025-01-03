@@ -20,6 +20,36 @@ const createDynamicNavigation = (config) => {
 };
 
 const navigationConfig = [
+  
+ 
+  {
+    title: 'My Account',
+    href: '/',
+    sections: [
+      {
+        // sectionTitle: 'Our Mission',
+        links: [
+          { linkTitle: 'Personal Info', linkHref: '/personal-info' },
+          { linkTitle: 'Addresses', linkHref: '/address' },
+        ],
+      },
+    ],
+  },
+
+  {
+    title: 'Dashboard',
+    href: '/dashboard',
+    sections: [],
+  },
+
+  {
+    title: 'Order History',
+    href: '/order-history',
+    sections: [],
+  },
+  
+  
+  
   {
     title: 'Home',
     href: '/',
@@ -244,7 +274,7 @@ export default function Header() {
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <div className="hidden lg:flex lg:flex-1 lg:items-center justify-end lg:space-x-10">
-              {navigation.slice(0, 4).map((item) => (
+              {navigation.slice(3, 7).map((item) => (
                 <div key={item.title} className="relative">
                   {renderNavItem(item)}
                 </div>
@@ -264,7 +294,7 @@ export default function Header() {
             </div>
 
             <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-start lg:space-x-10">
-              {navigation.slice(4).map((item) => (
+              {navigation.slice(7).map((item) => (
                 <div key={item.title} className="relative">
                   {renderNavItem(item)}
                 </div>
@@ -341,7 +371,7 @@ export default function Header() {
       )}
 
       <div
-        className={`fixed top-0 right-0 bottom-0 w-full sm:w-80 bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed  top-0 right-0 bottom-0 w-full sm:w-80 bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
@@ -359,8 +389,10 @@ export default function Header() {
           </div>
         </div>
         <div className="overflow-y-auto h-full pb-20">
+          {/* <button>My Account</button> */}
           {navigation.map((item) => (
             <div key={item.title} className="border-b">
+              
               {item.sections.length > 0 ? (
                 <>
                   <button
@@ -408,6 +440,7 @@ export default function Header() {
               )}
             </div>
           ))}
+          <button className=' bg-black text-white w-1/2 py-2 rounded-sm ml-3 mt-4'>LOG OUT</button>
         </div>
       </div>
       {!isMobileMenuOpen && <div
