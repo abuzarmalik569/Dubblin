@@ -80,7 +80,7 @@ console.log('Cancelled');
          
         <div className='w-full mt-5 p-4 lg:p-0'>
       
-      <div className='flex justify-between mb-6 '><h2 className="text-2xl  text-black">Addresses</h2>  <button className=' text-black'>LOG OUT</button></div>
+      <div className='flex justify-between mb-6 '><h2 className="text-2xl  text-black">Addresses</h2>  <button className=' text-black hidden lg:block'>LOG OUT</button></div>
       
       <div className=" md:w-1/2 w-full bg-slate-50 px-6 py-2 rounded-md">
       <div className=" space-y-3">

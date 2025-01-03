@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Page = () => {
   return (
@@ -41,7 +42,7 @@ const Page = () => {
           <div className="font-medium text-pink-800 mb-4">
             <a href="/forget-password">Forget password?</a>
           </div>
-          <button className="bg-black rounded-md text-white w-full md:w-32 h-10 mb-4">Log in</button>
+          <Link href={'/dashboard'}><button className="bg-black rounded-md text-white w-full md:w-32 h-10 mb-4">Log in</button></Link>
           <div className="flex justify-start items-center gap-2 font-normal mb-4 text-black">
             <hr className="border-t-2 border-black w-10" />
             <p>Or</p>

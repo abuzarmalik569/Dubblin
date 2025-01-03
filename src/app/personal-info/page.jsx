@@ -46,7 +46,7 @@ const page = () => {
          
           
               <div className=' w-full mt-5 p-4 lg:p-0'>
-                 <div className='flex justify-between mb-6'><h2 className="text-2xl  text-black">Personal Info</h2> <button className=' text-black'>LOG OUT</button></div>
+                 <div className='flex justify-between mb-6'><h2 className="text-2xl  text-black">Personal Info</h2> <button className=' text-black hidden lg:block'>LOG OUT</button></div>
               <div className="bg-gray-100 md:w-1/2 w-full shadow-md rounded-md p-6">
               <h3 className="text-xl text-black font-semibold mb-4">Account Details</h3>
              <div className=' flex justify-between'>

@@ -48,7 +48,7 @@ const page = () => {
         {/* Main Dashboard Section */}
          
         <div className=' w-full mt-5 p-4 lg:p-0'>
-       <div className='flex justify-between mb-6'><h2 className="text-2xl  text-black">Order History</h2> <button className=' text-black'>LOG OUT</button></div>
+       <div className='flex justify-between mb-6'><h2 className="text-2xl  text-black">Order History</h2> <button className=' text-black hidden lg:block'>LOG OUT</button></div>
         <div className=' md:w-1/2 w-full bg-gray-100 rounded-md h-[50vh] p-4 '>
           <p className=' text-black'>You haven't placed any orders yet.</p>
         </div>
