@@ -720,7 +720,8 @@ const Categories = () => {
                   .toFixed(2)}
               </p>
             </div>
-            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={selectedProducts.length === 0}>CHECKOUT</button>
+            <a href="/billing-page">
+            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={selectedProducts.length === 0}>CHECKOUT</button></a>
           </div>
         </div>
       )}
