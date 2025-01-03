@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import BestSelling from "./Components/BestSelling";

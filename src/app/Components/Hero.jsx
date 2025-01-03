@@ -114,9 +114,10 @@ const Hero = () => {
             <p className="mt-2 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
               {banner.description}
             </p>
+            <a href="/shop">
             <button className="bg-red-700 px-3 py-1 sm:px-4 sm:py-2 rounded-lg mt-3 sm:mt-4 md:mt-6 w-fit hover:bg-red-800 transition-colors duration-300 text-xs sm:text-sm md:text-base">
               Shop Now
-            </button>
+            </button></a>
           </div>
         </div>
       ))}

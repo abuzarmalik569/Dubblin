@@ -116,7 +116,7 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
 //     >
 //         <X size={24} />
 //  </button>
-        <div className='bg-white  overflow-x-hidden  md:h-[90vh] h-full w-screen  md:m-10 m-0 overflow-y-auto justify-evenly rounded-lg p-2'  onClick={(e) => e.stopPropagation()}>
+        <div className='bg-white  overflow-x-hidden container mx-auto  md:h-[90vh] h-full w-screen  md:m-10 m-0 overflow-y-auto justify-evenly rounded-lg p-2'  onClick={(e) => e.stopPropagation()}>
              <div className=' text-xl p-2 flex justify-end'>
              <button 
                  onClick={onClose}
