@@ -92,7 +92,7 @@ const navigationConfig = [
   },
   {
     title: 'Blog',
-    href: '/blog',
+    href: '/blogs',
     sections: [],
   },
 
