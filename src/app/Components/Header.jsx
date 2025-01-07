@@ -58,36 +58,9 @@ const navigationConfig = [
 
   {
     title: 'About us',
-    href: '/about',
+    href: '/about-us',
     sections: [
-      {
-        sectionTitle: 'Our Mission',
-        links: [
-          { linkTitle: 'Vision', linkHref: '/about/mission/vision' },
-          { linkTitle: 'Team', linkHref: '/about/mission/team' },
-        ],
-      },
-      {
-        sectionTitle: 'Our Team',
-        links: [
-          { linkTitle: 'Meet the Team', linkHref: '/about/team/meet-the-team' },
-          { linkTitle: 'Team Members', linkHref: '/about/team/team-members' },
-        ],
-      },
-      {
-        sectionTitle: 'Our History',
-        links: [
-          { linkTitle: 'Our Story', linkHref: '/about/history/our-story' },
-          { linkTitle: 'Timeline', linkHref: '/about/history/timeline' },
-        ],
-      },
-      {
-        sectionTitle: 'Contact Us',
-        links: [
-          { linkTitle: 'Contact Form', linkHref: '/contact' },
-          { linkTitle: 'Email', linkHref: '/contact/email' },
-        ],
-      }
+      
     ],
   },
   {
@@ -216,14 +189,14 @@ export default function Header() {
     if (item.title === 'About us') {
       return (
         <div className="relative" ref={aboutDropdownRef}>
-          <button
+         <Link href={'/about-us'}> <button
             className="text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center"
             onClick={toggleAboutDropdown}
           >
             {item.title}
-            <ChevronDown className="h-4 w-4 ml-1" />
-          </button>
-          {isAboutDropdownOpen && (
+            {/* <ChevronDown className="h-4 w-4 ml-1" /> */}
+          </button></Link>
+          {/* {isAboutDropdownOpen && (
             <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
               {item.sections.map((section, idx) => (
                 <div key={idx} className="py-1">
@@ -240,7 +213,7 @@ export default function Header() {
                 </div>
               ))}
             </div>
-          )}
+          )} */}
         </div>
       );
     } else if (item.title === 'Accessories' || item.title === 'New Arrivals') {
