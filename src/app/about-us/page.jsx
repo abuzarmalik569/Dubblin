@@ -1,235 +1,195 @@
 import React from 'react'
 import Image from 'next/image';
-const page = () => {
+import about1 from '../../../public/about1.png'
+import about2 from '../../../public/about2.png'
+import about3 from '../../../public/about3.png'
+import about4 from '../../../public/about4.png'
+import about5 from '../../../public/about5.png'
+import about6 from '../../../public/about6.png'
+// const page = () => {
+//   return (
+//    <main className="min-h-screen bg-white font-Outfit">
+//       {/* Hero Section */}
+//       <div className="h-[60vh] bg-gray-900 flex justify-center items-center"
+//       style={{backgroundImage:'url("/about1.png")',
+//         backgroundSize:'cover',
+//         backgroundRepeat:'no-repeat'
+//       }}>
+       
+         
+        
+//         <div>
+//           <h1 className="text-3xl md:text-4xl font-semibold text-white">About Us</h1>
+//         </div>
+//       </div>
+
+//       {/* Who We Are Section */}
+//       <section className="container mx-auto flex mt-14 px-4">
+        
+//           <div className="flex gap-4 w-3/5">
+//             <Image
+//               src={about2}
+//               alt="Person with water bottle"
+//               className=' w-[45%]'
+//             />
+//            <div className=' w-1/2 flex flex-col gap-4'>
+//            <Image
+//               src={about3}
+//               alt="Person drinking water"
+           
+//             />
+//              <Image
+//               src={about4}
+//               alt="Person drinking water"
+             
+//             />
+//            </div>
+//           </div>
+//           <div className="w-1/2 p-4 pl-7">
+//            <div className='space-y-4  w-10/12'>
+//            <h2 className="text-3xl font-bold text-black">WHO WE ARE</h2>
+//             <p className="text-gray-600">
+//             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer <br />
+//             <br />
+//             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer <br /> <br />
+//             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
+//             </p>
+//            </div>
+            
+//           </div>
+        
+//       </section>
+
+//       {/* Our Values Section */}
+//      <section className=' container mx-auto flex px-4 mt-14'>
+//         <div className=' w-1/2 space-y-6'>
+//            <div className=' space-y-2 w-10/12'>
+//             <h1 className=' font-semibold text-2xl text-black '>Our Vision</h1>
+//             <p className=' text-gray-600'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+//            </div>
+//            <div className=' space-y-3 w-10/12'>
+//             <h1 className=' font-semibold text-2xl text-black '>Our Mission</h1>
+//             <p className=' text-gray-600'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+//            </div>
+//            <div className=' space-y-3 w-10/12'>
+//            <h1 className=' font-semibold text-2xl text-black '>Our History</h1>
+//            <p className=' text-gray-600'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+//            </div>
+//         </div>
+//         <div className='w-1/2 '>
+//           <Image src={about5}/>
+//         </div>
+//      </section>
+
+     
+
+//       {/* Final Image Section */}
+//       <section className=" h-[90vh] mt-14" style={{backgroundImage:'url("/about6.png")',
+//         backgroundSize:'cover',
+//         backgroundRepeat:'no-repeat'
+//       }}>
+//        <div className=' container mx-auto flow-root'>
+//        <div className='w-[37%] mt-24 bg-white rounded-xl text-black space-y-4 pl-6 pr-12 pt-6 pb-16 '>
+//           <h1 className=' text-xl font-semibold'>What is Lorem Ipsum</h1>
+//           <p className=''>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,</p>
+//         </div>
+//        </div>
+//       </section>
+//     </main>
+
+
+
+//   );
+  
+// }
+
+// export default page
+
+export default function page() {
   return (
-    // <div className="w-full">
-    //   {/* Hero Section */}
-    //   <div className="relative w-full h-[400px]">
-    //     <Image
-    //       src="/hero-image.jpg" // Replace with the actual image
-    //       alt="Hero"
-    //       layout="fill"
-    //       objectFit="cover"
-    //       priority
-    //     />
-    //     <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-    //       <h1 className="text-white text-4xl font-bold">About Us</h1>
-    //     </div>
-    //   </div>
-
-    //   {/* Content Section */}
-    //   <div className="container mx-auto px-4 py-10 space-y-10">
-    //     {/* First Row */}
-    //     <div className="flex flex-wrap lg:flex-nowrap gap-8">
-    //       <div className="w-full lg:w-1/2 space-y-4">
-    //         <h2 className="text-2xl font-bold">WHO WE ARE</h2>
-    //         <p className="text-gray-600">
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry. Lorem Ipsum has been the industry's standard dummy text
-    //           ever since the 1500s.
-    //         </p>
-    //         <p className="text-gray-600">
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry. Lorem Ipsum has been the industry's standard dummy text
-    //           ever since the 1500s.
-    //         </p>
-    //       </div>
-    //       <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
-    //         <Image
-    //           src="/image1.jpg" // Replace with actual images
-    //           alt="Image 1"
-    //           width={300}
-    //           height={200}
-    //           className="object-cover rounded-md"
-    //         />
-    //         <Image
-    //           src="/image2.jpg" // Replace with actual images
-    //           alt="Image 2"
-    //           width={300}
-    //           height={200}
-    //           className="object-cover rounded-md"
-    //         />
-    //       </div>
-    //     </div>
-
-    //     {/* Second Row */}
-    //     <div className="flex flex-wrap lg:flex-nowrap gap-8">
-    //       <div className="w-full lg:w-1/3">
-    //         <h3 className="text-xl font-semibold">Our Vision</h3>
-    //         <p className="text-gray-600">
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry.
-    //         </p>
-    //       </div>
-    //       <div className="w-full lg:w-1/3">
-    //         <h3 className="text-xl font-semibold">Our Mission</h3>
-    //         <p className="text-gray-600">
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry.
-    //         </p>
-    //       </div>
-    //       <div className="w-full lg:w-1/3">
-    //         <h3 className="text-xl font-semibold">Our History</h3>
-    //         <p className="text-gray-600">
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry.
-    //         </p>
-    //       </div>
-    //     </div>
-
-    //     {/* Third Row */}
-    //     <div className="relative w-full h-[300px]">
-    //       <Image
-    //         src="/image3.jpg" // Replace with the actual image
-    //         alt="Background"
-    //         layout="fill"
-    //         objectFit="cover"
-    //         className="rounded-md"
-    //       />
-    //       <div className="absolute inset-0 bg-black/30 flex items-center">
-    //         <div className="bg-white p-6 rounded-md max-w-md mx-auto">
-    //           <h3 className="text-xl font-semibold">What is Lorem Ipsum</h3>
-    //           <p className="text-gray-600">
-    //             Lorem Ipsum is simply dummy text of the printing and typesetting
-    //             industry. Lorem Ipsum has been the industry's standard dummy
-    //             text ever since the 1500s.
-    //           </p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
- 
-
-    <main className="min-h-screen bg-white">
+    <div className='font-Outfit'>
       {/* Hero Section */}
-      <div className="relative h-[40vh] bg-gray-900">
-        <Image
-          src="/placeholder.svg?height=400&width=1920"
-          alt="About Us Banner"
-          fill
-          className="object-cover opacity-70"
-          priority
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">ABOUT US</h1>
+      <div className="h-[40vh] sm:h-[50vh] md:h-[60vh] bg-gray-900 flex justify-center items-center"
+        style={{
+          backgroundImage: 'url("/about1.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}>
+        <div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">About Us</h1>
         </div>
       </div>
 
       {/* Who We Are Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="grid grid-cols-2 gap-4">
+      <section className="container mx-auto flex flex-col md:flex-row mt-8 md:mt-14 px-4">
+        <div className="flex flex-col md:flex-row gap-4 w-full lg:w-3/5 md:w-1/2 mb-8 md:mb-0">
+          <Image
+            src={about2}
+            alt="Person with water bottle"
+            className="w-full md:w-[45%] h-"
+          />
+          <div className="w-full md:w-1/2 flex flex-col gap-4">
             <Image
-              src="/placeholder.svg?height=300&width=300"
-              alt="Person with water bottle"
-              width={300}
-              height={300}
-              className="object-cover w-full h-full"
+              src={about3}
+              alt="Person drinking water"
+              className="w-full h-auto"
             />
             <Image
-              src="/placeholder.svg?height=300&width=300"
+              src={about4}
               alt="Person drinking water"
-              width={300}
-              height={300}
-              className="object-cover w-full h-full"
+              className="w-full h-auto"
             />
           </div>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold">WHO WE ARE</h2>
+        </div>
+        <div className="w-full md:w-1/2 md:p-4 md:pl-7">
+          <div className="space-y-4 w-full lg:w-10/12">
+            <h2 className="text-2xl md:text-3xl font-bold text-black">WHO WE ARE</h2>
             <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
-            </p>
-            <p className="text-gray-600">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer <br className="hidden md:inline" />
+              <br />
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer <br className="hidden md:inline" /> <br />
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
             </p>
           </div>
         </div>
       </section>
 
       {/* Our Values Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-3">
-              <h3 className="text-xl font-bold">Our Vision</h3>
-              <p className="text-gray-600">
-                To become the world's leading sustainable hydration solution
-                provider, inspiring people to make environmentally conscious
-                choices.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-xl font-bold">Our Mission</h3>
-              <p className="text-gray-600">
-                To create innovative, high-quality hydration products that enhance
-                people's lives while minimizing environmental impact.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-xl font-bold">Our Values</h3>
-              <p className="text-gray-600">
-                Sustainability, innovation, quality, and customer satisfaction are
-                at the heart of everything we do.
-              </p>
-            </div>
+      <section className="container mx-auto flex flex-col md:flex-row px-4 mt-8 md:mt-14">
+        <div className="w-full md:w-1/2 space-y-6 mb-8 md:mb-0">
+          <div className="space-y-2 w-full md:w-10/12">
+            <h1 className="font-semibold text-xl md:text-2xl text-black">Our Vision</h1>
+            <p className="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+          </div>
+          <div className="space-y-3 w-full md:w-10/12">
+            <h1 className="font-semibold text-xl md:text-2xl text-black">Our Mission</h1>
+            <p className="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+          </div>
+          <div className="space-y-3 w-full md:w-10/12">
+            <h1 className="font-semibold text-xl md:text-2xl text-black">Our History</h1>
+            <p className="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
           </div>
         </div>
-      </section>
-
-      {/* Product Image Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Image
-            src="/placeholder.svg?height=400&width=600"
-            alt="Person with water bottle outdoors"
-            width={600}
-            height={400}
-            className="object-cover w-full h-full rounded-lg"
-          />
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold">What is Lorem Ipsum</h2>
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
-            </p>
-            <p className="text-gray-600">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-          </div>
+        <div className="w-full md:w-1/2">
+          <Image src={about5} alt="Our Values" className="w-full h-auto" />
         </div>
       </section>
 
       {/* Final Image Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <Image
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Person with water bottle in snow"
-            width={1200}
-            height={600}
-            className="object-cover w-full h-[400px] rounded-lg"
-          />
+      <section className="h-[60vh] sm:h-[70vh] md:h-[90vh] mt-8 md:mt-14" style={{
+        backgroundImage: 'url("/about6.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        <div className="container mx-auto flow-root">
+          <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[37%] mt-8 sm:mt-12 md:mt-20 mx-auto md:ml-5 bg-white rounded-xl text-black space-y-4 p-6">
+            <h1 className="text-lg sm:text-xl font-semibold">What is Lorem Ipsum</h1>
+            <p className="text-sm sm:text-base text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,</p>
+          </div>
         </div>
       </section>
-    </main>
-
-
-
-  );
-  
+    </div>
+  )
 }
-
-export default page
-
-
