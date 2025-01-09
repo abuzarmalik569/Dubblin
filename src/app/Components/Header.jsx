@@ -254,7 +254,7 @@ export default function Header() {
 
 
   return (
-    <header className="relative font-Outfit">
+    <header className=" sticky z-50 top-0 font-Outfit">
       <div className="font-Outfit text-center py-4 bg-black text-white">
         <h1>Free Shipping On Orders Over &#8377;25</h1>
       </div>
@@ -574,7 +574,7 @@ export default function Header() {
               </p>
             </div>
             <a href="/billing-page">
-            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={cartlist.length === 0}>CHECKOUT</button></a>
+            <button className='bg-pink-800 text-white w-3/5 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={cartlist.length === 0}>CHECKOUT</button></a>
           </div>
         </div>
       )}
