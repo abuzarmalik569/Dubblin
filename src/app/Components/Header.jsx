@@ -205,9 +205,26 @@ export default function Header() {
             onClick={toggleAboutDropdown}
           >
             {item.title}
-      
+            {/* <ChevronDown className="h-4 w-4 ml-1" /> */}
           </button></Link>
-         
+          {/* {isAboutDropdownOpen && (
+            <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+              {item.sections.map((section, idx) => (
+                <div key={idx} className="py-1">
+                  <h3 className="px-4 py-2 text-sm font-medium text-gray-900">{section.title}</h3>
+                  {section.links.map((link, linkIdx) => (
+                    <Link
+                      key={linkIdx}
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )} */}
         </div>
       );
     } else if (item.title === 'Accessories' || item.title === 'New Arrivals') {
@@ -237,7 +254,7 @@ export default function Header() {
 
 
   return (
-    <header className=" sticky top-0 z-50  font-Outfit">
+    <header className="relative font-Outfit">
       <div className="font-Outfit text-center py-4 bg-black text-white">
         <h1>Free Shipping On Orders Over &#8377;25</h1>
       </div>
@@ -282,15 +299,11 @@ export default function Header() {
                   
                  
                 </button>
-<<<<<<< HEAD
                 <button className="text-gray-700 relative hover:text-gray-900 transition-colors duration-200" onClick={()=>{
                 //  const cartpopup=document.getElementById('cartpopup')
                 //  cartpopup.classList.remove('hidden')
-=======
-                <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200" onClick={()=>{
->>>>>>> b4f532cb4d8ad887b2566cdecdba0286c9a1034f
                 setShowCart(true)
-                
+                // setSelectedProducts(products)
                 }}>
                   <ShoppingCart className="h-6 w-6 " />
                   <div className='absolute rounded-full p-1 w-4 flex justify-center items-center h-4 bg-black text-xs text-white -top-2 -right-2'>
@@ -312,13 +325,8 @@ export default function Header() {
               <a href="/login"><User className="h-6 w-6" /></a>
 
               </button>
-              <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
-              onClick={()=>{
-                setShowCart(true)
-                
-                }}>
-                  <ShoppingCart className="h-6 w-6" />
-                
+              <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200">
+                <ShoppingCart className="h-5 w-5 mr-2" />
 
               </button>
               <button
@@ -465,11 +473,7 @@ export default function Header() {
         </div>
       </div>}
       {showCart && (
-<<<<<<< HEAD
         <div className="absolute right-0 inset-0 h-screen font-Outfit text-black  bg-black bg-opacity-50 flex items-center justify-end z-50 ">
-=======
-        <div className="fixed inset-0 h-screen font-Outfit text-black  bg-black bg-opacity-50 flex items-center justify-end z-50 ">
->>>>>>> b4f532cb4d8ad887b2566cdecdba0286c9a1034f
           <div className="bg-white border p-6 rounded-lg w-screen md:w-2/5 h-screen overflow-y-auto container">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-3xl font-normal">Cart</h2>
@@ -570,7 +574,7 @@ export default function Header() {
               </p>
             </div>
             <a href="/billing-page">
-            <button className='bg-pink-800 text-white w-2/3 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={selectedProducts.length === 0}>CHECKOUT</button></a>
+            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={cartlist.length === 0}>CHECKOUT</button></a>
           </div>
         </div>
       )}
