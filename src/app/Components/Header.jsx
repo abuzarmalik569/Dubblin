@@ -559,10 +559,6 @@ import { Search, User, ShoppingCart, Menu, X, Trash2, ChevronRight, ChevronDown 
 import { gsap } from 'gsap';
 import React from 'react';
 import { cartContext } from '../cartContext';
-<<<<<<< HEAD
-
-=======
->>>>>>> b6c6c835d0f807fae845735420efcf74c26de6c6
 
 const createDynamicNavigation = (config) => {
   return config.map(({ title, href, sections }) => ({
@@ -747,16 +743,6 @@ export default function Header() {
     if (item.title === 'About us') {
       return (
         <div className="relative" ref={aboutDropdownRef}>
-<<<<<<< HEAD
-         <Link href={'/about-us'}> <button
-            className="text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center"
-            onClick={toggleAboutDropdown}
-          >
-            {item.title}
-           
-          </button></Link>
-       
-=======
           <Link href={'/about-us'}>
             <button
               className="text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center"
@@ -765,7 +751,6 @@ export default function Header() {
               {item.title}
             </button>
           </Link>
->>>>>>> b6c6c835d0f807fae845735420efcf74c26de6c6
         </div>
       );
     } else if (item.title === 'Accessories' || item.title === 'New Arrivals') {
@@ -795,22 +780,6 @@ export default function Header() {
   };
 
   return (
-<<<<<<< HEAD
-    <header className=" sticky z-50 top-0 font-Outfit">
-      <div className="font-Outfit text-center py-4 bg-black text-white">
-        <h1>Free Shipping On Orders Over &#8377;250</h1>
-      </div>
-      <nav className="border-b bg-white relative">
-        <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
-            <div className="hidden lg:flex lg:flex-1 lg:items-center justify-end lg:space-x-10">
-              {navigation.slice(3, 7).map((item) => (
-                <div key={item.title} className="relative">
-                  {renderNavItem(item)}
-                </div>
-              ))}
-            </div>
-=======
     <div>
       <header className="sticky z-50 top-0 font-Outfit" ref={headerRef}>
         <div className="font-Outfit text-center py-4 bg-black text-white">
@@ -826,7 +795,6 @@ export default function Header() {
                   </div>
                 ))}
               </div>
->>>>>>> b6c6c835d0f807fae845735420efcf74c26de6c6
 
               <div className="flex justify-center lg:pr-14 lg:pl-14 lg:flex-none">
                 <Link href="/" className="flex items-center">
@@ -877,15 +845,8 @@ export default function Header() {
                 <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200">
                   <a href="/login"><User className="h-6 w-6" /></a>
                 </button>
-<<<<<<< HEAD
-                <button className="text-gray-700 relative hover:text-gray-900 transition-colors duration-200" onClick={()=>{
-               
-                setShowCart(true)
-              
-=======
                 <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200" onClick={() => {
                   setShowCart(true)
->>>>>>> b6c6c835d0f807fae845735420efcf74c26de6c6
                 }}>
                   <ShoppingCart className="h-6 w-6 " />
                 </button>
@@ -926,22 +887,6 @@ export default function Header() {
           </div>
         )}
 
-<<<<<<< HEAD
-              </button>
-              <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200"onClick={()=>{
-               
-               setShowCart(true)
-             
-               }}>
-                 <ShoppingCart className="h-6 w-6 " />
-                 
-              </button>
-              <button
-                className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                onClick={toggleMobileMenu}
-              >
-                <Menu className="h-6 w-6" />
-=======
         <div
           className={`fixed top-0 right-0 bottom-0 w-full sm:w-80 bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
@@ -957,7 +902,6 @@ export default function Header() {
             <div className="flex items-center space-x-4">
               <button onClick={toggleMobileMenu} className="text-gray-700 hover:text-gray-900 transition-colors duration-200">
                 <X className="h-6 w-6" />
->>>>>>> b6c6c835d0f807fae845735420efcf74c26de6c6
               </button>
             </div>
           </div>
