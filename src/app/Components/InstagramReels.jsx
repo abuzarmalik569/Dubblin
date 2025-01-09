@@ -76,18 +76,20 @@ const InstagramReels = () => {
         }}
       >
         {visibleImages.map((src, index) => (
+          
           <div key={index} className="relative aspect-[9/16] overflow-hidden rounded-lg group">
+         
             <Image
               src={src}
               alt={`Instagram Reel ${startIndex + index + 1}`}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="absolute bottom-4 left-4 right-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Reel {startIndex + index + 1}
-            </div>
+        
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div> */}
+           
           </div>
+         
         ))}
       </div>
       <button

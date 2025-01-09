@@ -422,7 +422,7 @@ const Page = () => {
         {/* Sidebar */}
          <div className={`${
                  isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-               } lg:translate-x-0 transition-transform duration-300 ease-in-out fixed lg:static left-0  top-0 h-full lg:h-auto z-40 bg-white lg:bg-gray-50 overflow-y-auto lg:overflow-visible w-screen md:w-96  lg:p-4 shadow-lg lg:shadow-none`}>
+               } lg:translate-x-0 transition-transform duration-300 ease-in-out fixed lg:static left-0  top-0 h-full lg:h-auto z-40 bg-white lg:bg-gray-50 overflow-y-auto lg:overflow-visible w-screen md:w-96   lg:p-4 shadow-lg lg:shadow-none`}>
                  {/* Sidebar content */}
                  <div className='text-left mb-20 w-full lg:w-full '>
                    {/* Categories - Fixed at the top */}
@@ -575,7 +575,7 @@ const Page = () => {
             </div>
           </div>
 
-          <hr className="mb-8" />
+          <hr className="" />
 
           {/* Products grid */}
           <div ref={productsRef} className="grid p-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-16">
