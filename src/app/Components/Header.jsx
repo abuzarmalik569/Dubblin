@@ -1,9 +1,12 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { Search, User, ShoppingCart, Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
 import { gsap } from 'gsap';
+import React from 'react';
+import { cartContext } from '../../../cartContext';
+// import React from 'react';
 
 const createDynamicNavigation = (config) => {
   return config.map(({ title, href, sections }) => ({
@@ -121,6 +124,9 @@ export default function Header() {
   const searchBarRef = useRef(null);
   const searchInputRef = useRef(null);
   const aboutDropdownRef = useRef(null);
+  const [selectedProducts, setSelectedProducts] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+  const{products}=useContext(cartContext);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -183,6 +189,27 @@ export default function Header() {
   const toggleMegaMenu = (title) => {
     setActiveMegaMenu(activeMegaMenu === title ? null : title);
     setIsAboutDropdownOpen(false);
+  };
+
+   const addToCart = (product, color, size, quantity) => {
+    const newItem = {
+      ...product,
+      selectedColor: color,
+      selectedSize: size,
+      quantity: quantity,
+      uniqueId: Date.now()
+    };
+    setSelectedProducts(prev => [...prev, newItem]);
+    closeProductSelection();
+
+    // GSAP animation for adding to cart
+    gsap.to(cartIconRef.current, {
+      scale: 1.5,
+      duration: 0.2,
+      yoyo: true,
+      repeat: 1,
+      ease: "power2.inOut"
+    });
   };
 
   const renderNavItem = (item) => {
@@ -284,8 +311,13 @@ export default function Header() {
                   
                  
                 </button>
-                <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200">
+                <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200" onClick={()=>{
+                //  const cartpopup=document.getElementById('cartpopup')
+                //  cartpopup.classList.remove('hidden')
+                setShowCart(true)
+                }}>
                   <ShoppingCart className="h-6 w-6" />
+                
                   
                 </button>
               </div>
@@ -449,7 +481,86 @@ export default function Header() {
           </div>
         </div>
       </div>}
+      {showCart && (
+        <div className="fixed inset-0 h-screen font-Outfit  bg-black bg-opacity-50 flex items-center justify-end z-50 mx-auto container">
+          <div className="bg-white border p-6 rounded-lg w-screen md:w-2/5 h-screen overflow-y-auto container">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-3xl font-normal">Cart</h2>
+              <button
+                onClick={() => setShowCart(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X size={34} />
+              </button>
+            </div>
+            <hr className="border-t-2 border-black" />
+            <div className="overflow-y-auto mt-2 h-[69%] no-scrollbar">
+              {console.log(products)}
+              {products.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full">
+                  <ShoppingCart size={64} className="text-gray-400 mb-4 animate-bounce" />
+                  <p className="text-xl font-semibold text-gray-600 animate-pulse">Your cart is empty</p>
+                </div>
+              ) : (
+                products.map((item) => (
+                  <div
+                    key={item.uniqueId}
+                    className="flex items-center justify-between border border-black rounded-md mt-4 mb-4 py-2 p-2"
+                  >
+                    <div className="flex justify-start gap-5 items-center">
+                      <div>
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-28 h-28"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <h3 className="font-semibold">{item.name}</h3>
+                        <p className="font-bold">
+                          &#8377;{(item.price * item.quantity).toFixed(2)}
+                        </p>
+                        <div className="flex items-center">
+                            <div className="flex items-center border">
+                                <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="bg-gray-200 px-3 text-xl">-</button>
+                                <p className="px-3 text-md">{quantity}</p>
+                                <button onClick={() => setQuantity(q => q + 1)} className="bg-gray-200 px-3 text-xl">+</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => removeFromCart(item.uniqueId)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Trash2 />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+            <hr className="border-b-2 border-black items-center" />
+            <div className="p-2 bg-white  mt-2 flex justify-between">
+              <p className="text-xl font-normal">Subtotal </p>
+              <p className="text-xl font-normal block">
+                &#8377;
+                {products
+                  .reduce(
+                    (total, item) => total + item.price * item.quantity,
+                    0
+                  )
+                  .toFixed(2)}
+              </p>
+            </div>
+            <a href="/billing-page">
+            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={selectedProducts.length === 0}>CHECKOUT</button></a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
 
+  

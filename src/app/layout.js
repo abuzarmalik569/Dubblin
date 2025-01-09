@@ -1,8 +1,11 @@
+'use client'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import {cartContext} from "../../cartContext"
+import { useState } from "react";
 
 
 const Outfit = localFont({
@@ -18,13 +21,16 @@ const Cinzel = localFont({
 })
 
 
-export const metadata = {
-  title: "Dubblin",
-  description: "",
-};
+// export const metadata = {
+//   title: "Dubblin",
+//   description: "",
+// };
 
 export default function RootLayout({ children }) {
+
+  const[products,setProducts]=useState([])
   return (
+    <cartContext.Provider value={{cartlist:products , setProducts}}>
     <html lang="en">
       <body
         className={`${Outfit.variable} ${Cinzel.variable} antialiased`}
@@ -34,5 +40,6 @@ export default function RootLayout({ children }) {
         <Footer />
       </body>
     </html>
+    </cartContext.Provider>
   );
 }
