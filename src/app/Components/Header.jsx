@@ -2,10 +2,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, useContext } from 'react';
-import { Search, User, ShoppingCart, Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
+import { Search, User, ShoppingCart, Menu, X,Trash2, ChevronRight, ChevronDown } from 'lucide-react';
 import { gsap } from 'gsap';
 import React from 'react';
-import { cartContext } from '../../../cartContext';
+import { cartContext } from '../cartContext';
+// import { X, ChevronRight, Check, Trash2, ShoppingCart } from 'lucide-react';
+// import { cartContext } from '../../../cartContext';
 // import React from 'react';
 
 const createDynamicNavigation = (config) => {
@@ -126,7 +128,9 @@ export default function Header() {
   const aboutDropdownRef = useRef(null);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  const{products}=useContext(cartContext);
+  const [quantity, setQuantity] = useState(1);
+ 
+  const{cartlist,setCartlist}= useContext(cartContext)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -191,26 +195,6 @@ export default function Header() {
     setIsAboutDropdownOpen(false);
   };
 
-   const addToCart = (product, color, size, quantity) => {
-    const newItem = {
-      ...product,
-      selectedColor: color,
-      selectedSize: size,
-      quantity: quantity,
-      uniqueId: Date.now()
-    };
-    setSelectedProducts(prev => [...prev, newItem]);
-    closeProductSelection();
-
-    // GSAP animation for adding to cart
-    gsap.to(cartIconRef.current, {
-      scale: 1.5,
-      duration: 0.2,
-      yoyo: true,
-      repeat: 1,
-      ease: "power2.inOut"
-    });
-  };
 
   const renderNavItem = (item) => {
     if (item.title === 'About us') {
@@ -264,6 +248,10 @@ export default function Header() {
       );
     }
   };
+  const removeFromCart = (uniqueId) => {
+    setCartlist(prev => prev.filter(item => item.uniqueId !== uniqueId));
+  };
+
 
   return (
     <header className="relative font-Outfit">
@@ -315,6 +303,7 @@ export default function Header() {
                 //  const cartpopup=document.getElementById('cartpopup')
                 //  cartpopup.classList.remove('hidden')
                 setShowCart(true)
+                // setSelectedProducts(products)
                 }}>
                   <ShoppingCart className="h-6 w-6" />
                 
@@ -482,7 +471,7 @@ export default function Header() {
         </div>
       </div>}
       {showCart && (
-        <div className="fixed inset-0 h-screen font-Outfit  bg-black bg-opacity-50 flex items-center justify-end z-50 mx-auto container">
+        <div className="absolute right-0 inset-0 h-screen font-Outfit text-black  bg-black bg-opacity-50 flex items-center justify-end z-50 mx-auto container">
           <div className="bg-white border p-6 rounded-lg w-screen md:w-2/5 h-screen overflow-y-auto container">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-3xl font-normal">Cart</h2>
@@ -495,14 +484,15 @@ export default function Header() {
             </div>
             <hr className="border-t-2 border-black" />
             <div className="overflow-y-auto mt-2 h-[69%] no-scrollbar">
-              {console.log(products)}
-              {products.length === 0 ? (
+              {console.log(cartlist)}
+              {cartlist.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full">
                   <ShoppingCart size={64} className="text-gray-400 mb-4 animate-bounce" />
                   <p className="text-xl font-semibold text-gray-600 animate-pulse">Your cart is empty</p>
                 </div>
               ) : (
-                products.map((item) => (
+                
+                cartlist.map((item) => (
                   <div
                     key={item.uniqueId}
                     className="flex items-center justify-between border border-black rounded-md mt-4 mb-4 py-2 p-2"
@@ -521,11 +511,37 @@ export default function Header() {
                           &#8377;{(item.price * item.quantity).toFixed(2)}
                         </p>
                         <div className="flex items-center">
-                            <div className="flex items-center border">
-                                <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="bg-gray-200 px-3 text-xl">-</button>
-                                <p className="px-3 text-md">{quantity}</p>
-                                <button onClick={() => setQuantity(q => q + 1)} className="bg-gray-200 px-3 text-xl">+</button>
-                            </div>
+                          <div className="flex items-center border">
+                            <button
+                              onClick={() =>
+                                setCartlist((prevCartlist) =>
+                                  prevCartlist.map((product) =>
+                                    product.uniqueId === item.uniqueId
+                                      ? { ...product, quantity: Math.max(1, product.quantity - 1) }
+                                      : product
+                                  )
+                                )
+                              }
+                              className="bg-gray-200 px-3 text-xl"
+                            >
+                              -
+                            </button>
+                            <p className="px-3 text-md">{item.quantity}</p>
+                            <button
+                              onClick={() =>
+                                setCartlist((prevCartlist) =>
+                                  prevCartlist.map((product) =>
+                                    product.uniqueId === item.uniqueId
+                                      ? { ...product, quantity: product.quantity + 1 }
+                                      : product
+                                  )
+                                )
+                              }
+                              className="bg-gray-200 px-3 text-xl"
+                            >
+                              +
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -539,6 +555,7 @@ export default function Header() {
                     </div>
                   </div>
                 ))
+                
               )}
             </div>
             <hr className="border-b-2 border-black items-center" />
@@ -546,7 +563,7 @@ export default function Header() {
               <p className="text-xl font-normal">Subtotal </p>
               <p className="text-xl font-normal block">
                 &#8377;
-                {products
+                {cartlist
                   .reduce(
                     (total, item) => total + item.price * item.quantity,
                     0
@@ -555,7 +572,7 @@ export default function Header() {
               </p>
             </div>
             <a href="/billing-page">
-            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={selectedProducts.length === 0}>CHECKOUT</button></a>
+            <button className='bg-pink-800 text-white w-80 mt-4 flex justify-center p-3 rounded-lg mx-auto' disabled={cartlist.length === 0}>CHECKOUT</button></a>
           </div>
         </div>
       )}

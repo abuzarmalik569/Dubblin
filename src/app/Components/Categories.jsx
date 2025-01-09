@@ -5,7 +5,8 @@ import ProductEach from './ProductEach';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { X, ChevronRight, Check, Trash2, ShoppingCart } from 'lucide-react';
-import { cartContext } from '../../../cartContext';
+import { cartContext } from '../cartContext';
+// import { cartContext } from '../../../cartContext';
 
 const Categories = () => {
   const categories = [
@@ -117,7 +118,8 @@ const Categories = () => {
   const productsRef = useRef(null);
   const popupRef = useRef(null);
   const cartIconRef = useRef(null);
-  const{setProducts}=useContext(cartContext)
+  // const{setProducts}=useContext(cartContext)
+  const{setCartlist}=useContext(cartContext)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -151,7 +153,7 @@ const Categories = () => {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
+   useEffect(() => {
     if (showCart) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -208,7 +210,12 @@ const Categories = () => {
       quantity: quantity,
       uniqueId: Date.now()
     };
-    setProducts(prev => [...prev, newItem]);
+    console.log(newItem)
+    // setProducts([newItem]);
+    // setProducts([])
+    // setCartlist(prev=> prev ,newItem)
+    setCartlist((prev) => [...prev, newItem]);
+
     closeProductSelection();
 
     // GSAP animation for adding to cart
@@ -220,10 +227,10 @@ const Categories = () => {
       ease: "power2.inOut"
     });
   };
-
-  const removeFromCart = (uniqueId) => {
-    setSelectedProducts(prev => prev.filter(item => item.uniqueId !== uniqueId));
-  };
+  //  {console.log(addToCart)}
+  // const removeFromCart = (uniqueId) => {
+  //   setCartlist(prev => prev.filter(item => item.uniqueId !== uniqueId));
+  // };
 
   const buyNow = (product, color, size, quantity) => {
     addToCart(product, color, size, quantity);

@@ -446,7 +446,7 @@ import { useState, useMemo, useContext } from 'react'
 import Image from 'next/image'
 import { IoCheckmark } from "react-icons/io5"
 import { X } from 'lucide-react'
-import { cartContext } from '../../../cartContext'
+// import { cartContext } from '../../../cartContext'
 
 const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
     const [selectedColor, setSelectedColor] = useState(product.colors[0])
@@ -454,7 +454,7 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
     const [quantity, setQuantity] = useState(1)
     const [zoomLevel, setZoomLevel] = useState(1);
     const [isHovering, setIsHovering] = useState(false);
-    const {setProducts}=useContext(cartContext)
+    // const {setProducts}=useContext(cartContext)
     const calculatePrice = (size, color) => {
         const basePrice = product.price
         const sizeMultiplier = {

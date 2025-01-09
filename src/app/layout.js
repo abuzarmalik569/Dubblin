@@ -4,7 +4,9 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import {cartContext} from "../../cartContext"
+// import {cartContext} from "../../cartContext"
+// import { useState } from "react";
+import {cartContext} from '../app/cartContext.jsx'
 import { useState } from "react";
 
 
@@ -28,9 +30,10 @@ const Cinzel = localFont({
 
 export default function RootLayout({ children }) {
 
-  const[products,setProducts]=useState([])
+  const[cartlist, setCartlist]=useState([])
+  
   return (
-    <cartContext.Provider value={{cartlist:products , setProducts}}>
+    <cartContext.Provider value={{cartlist:cartlist , setCartlist}}>
     <html lang="en">
       <body
         className={`${Outfit.variable} ${Cinzel.variable} antialiased`}
