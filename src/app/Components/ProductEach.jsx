@@ -299,7 +299,8 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                 
                 <div className="w-full mt-5 md:w-1/2 px-5">
                     <div className='flex justify-between'>
-                        <Link href={'/product-details'}><h1 className="text-xl font-semibold">{product.name}</h1></Link>
+                        <a href="/product-details">
+                        <h1 className="text-xl font-semibold">{product.name}</h1></a>
                         {product.badge && (
                             <span className="bg-yellow-400 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
                                 {product.badge}
