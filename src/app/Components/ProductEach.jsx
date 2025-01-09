@@ -529,6 +529,8 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                     <div className="space-y-4 mt-8 mb-8 flex flex-col justify-center">
                         <p className='flex text-sm'><strong className='w-1/4 block'>Available:</strong> <span className='block w-1/4 text-slate-500 font-semibold'>In stock</span></p>
                         <p className='flex text-sm'><strong className='w-1/4 block'>Capacity</strong> <span className='block w-1/4 text-slate-500 font-semibold'>{selectedSize}</span></p>
+                        <p className='flex text-sm'><strong className='w-1/4 block'>Special Feature</strong> <span className='block w-1/4 text-slate-500 font-semibold'>Double Wall Insulated</span></p>
+                        <p className='flex text-sm'><strong className='w-1/4 block'>Model Name</strong> <span className='block w-1/4 text-slate-500 font-semibold'>DREAM 800 Violet</span></p>
                     </div>
                     
                     <div className="space-y-2 mb-4">
