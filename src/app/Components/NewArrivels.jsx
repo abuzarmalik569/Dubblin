@@ -276,6 +276,7 @@ const NewArrivals = () => {
       gsap.registerPlugin(ScrollTrigger);
     }
   }, []);
+  // gghbjjn
 
   const products = [
     { id: 1, image: '/image 9.png', name: 'Custom Eco-friendly Water Bottle', price: 599, oldPrice: 999 },
