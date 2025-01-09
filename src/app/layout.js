@@ -22,6 +22,12 @@ const Cinzel = localFont({
   weight: "100-900",
 })
 
+const Racing = localFont({
+  src: "./fonts/RacingSansOne-Regular.ttf",
+  variable: "--font-Racing",
+  weight: "100-900",
+})
+
 
 // export const metadata = {
 //   title: "Dubblin",
@@ -36,7 +42,7 @@ export default function RootLayout({ children }) {
     <cartContext.Provider value={{cartlist:cartlist , setCartlist}}>
     <html lang="en">
       <body
-        className={`${Outfit.variable} ${Cinzel.variable} antialiased`}
+        className={`${Outfit.variable} ${Racing.variable} ${Cinzel.variable} antialiased`}
       >
         <Header />
         {children}
