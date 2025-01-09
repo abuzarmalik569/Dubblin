@@ -6,9 +6,7 @@ import { Search, User, ShoppingCart, Menu, X,Trash2, ChevronRight, ChevronDown }
 import { gsap } from 'gsap';
 import React from 'react';
 import { cartContext } from '../cartContext';
-// import { X, ChevronRight, Check, Trash2, ShoppingCart } from 'lucide-react';
-// import { cartContext } from '../../../cartContext';
-// import React from 'react';
+
 
 const createDynamicNavigation = (config) => {
   return config.map(({ title, href, sections }) => ({
@@ -205,26 +203,9 @@ export default function Header() {
             onClick={toggleAboutDropdown}
           >
             {item.title}
-            {/* <ChevronDown className="h-4 w-4 ml-1" /> */}
+           
           </button></Link>
-          {/* {isAboutDropdownOpen && (
-            <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
-              {item.sections.map((section, idx) => (
-                <div key={idx} className="py-1">
-                  <h3 className="px-4 py-2 text-sm font-medium text-gray-900">{section.title}</h3>
-                  {section.links.map((link, linkIdx) => (
-                    <Link
-                      key={linkIdx}
-                      href={link.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )} */}
+       
         </div>
       );
     } else if (item.title === 'Accessories' || item.title === 'New Arrivals') {
@@ -256,7 +237,7 @@ export default function Header() {
   return (
     <header className=" sticky z-50 top-0 font-Outfit">
       <div className="font-Outfit text-center py-4 bg-black text-white">
-        <h1>Free Shipping On Orders Over &#8377;25</h1>
+        <h1>Free Shipping On Orders Over &#8377;250</h1>
       </div>
       <nav className="border-b bg-white relative">
         <div className="container mx-auto px-4">
@@ -300,10 +281,9 @@ export default function Header() {
                  
                 </button>
                 <button className="text-gray-700 relative hover:text-gray-900 transition-colors duration-200" onClick={()=>{
-                //  const cartpopup=document.getElementById('cartpopup')
-                //  cartpopup.classList.remove('hidden')
+               
                 setShowCart(true)
-                // setSelectedProducts(products)
+              
                 }}>
                   <ShoppingCart className="h-6 w-6 " />
                   <div className='absolute rounded-full p-1 w-4 flex justify-center items-center h-4 bg-black text-xs text-white -top-2 -right-2'>
@@ -325,9 +305,13 @@ export default function Header() {
               <a href="/login"><User className="h-6 w-6" /></a>
 
               </button>
-              <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200">
-                <ShoppingCart className="h-5 w-5 mr-2" />
-
+              <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200"onClick={()=>{
+               
+               setShowCart(true)
+             
+               }}>
+                 <ShoppingCart className="h-6 w-6 " />
+                 
               </button>
               <button
                 className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
