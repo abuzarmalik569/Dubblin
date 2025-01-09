@@ -16,6 +16,7 @@ export default {
       fontFamily:{
         Outfit: ["var(--font-Outfit)"],
         Cinzel: ["var(--font-Cinzel)"],
+        Racing: ["var(--font-Racing)"],
       }
     },
   },
