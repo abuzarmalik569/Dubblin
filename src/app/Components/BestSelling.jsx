@@ -51,7 +51,9 @@ const BestSelling = () => {
             <p className=' font-Outfit font-medium text-lg text-center mb-10 text-black'>Discover our exciting New Arrivals</p>
             <div className="image-grid flex flex-col items-center lg:flex-row justify-center gap-4">
                 {/* First Image */}
+                <a href="/shop">
                 <div className="image-container relative w-full lg:w-auto">
+                   
                     <Image 
                         src="/image 15.png" 
                         width={605} 
@@ -60,16 +62,20 @@ const BestSelling = () => {
 
                         priority
                     />
+                   
                     <div className="absolute font-Outfit text-center bottom-4 md:bottom-8 left-4 md:left-8 text-white">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold">FRIDAY</h1>
                         <p className="text-xl md:text-2xl lg:text-3xl text-pink-800 font-bold">THE 13TH SALE</p>
                     </div>
                 </div>
+                </a>
 
                 {/* Middle Column */}
                 <div className="flex flex-col items-center gap-4 w-full lg:w-auto">
                     {/* Top Image */}
+                    <a href="/shop">
                     <div className="image-container relative">
+                       
                         <Image 
                             src="/image 3.png" 
                             alt="Special Offer" 
@@ -78,14 +84,18 @@ const BestSelling = () => {
             
                             priority
                         />
+                        
                         <div className="absolute font-Outfit font-bold inset-4 flex flex-col justify-end text-white">
                             <h2 className="text-2xl md:text-3xl">FRIDAY</h2>
                             <p className="text-base md:text-lg">THE 13TH SALE</p>
                         </div>
+                        
                     </div>
-
+                    </a>
                     {/* Bottom Image */}
+                    <a href="/shop">
                     <div className="image-container relative">
+                        
                         <Image 
                             src="/image 4.png" 
                             alt="New Collection" 
@@ -93,15 +103,19 @@ const BestSelling = () => {
                             height={300}
                             priority
                         />
+                       
                         <div className="absolute font-Outfit font-bold inset-4 flex flex-col justify-end text-white">
                             <h2 className="text-2xl md:text-3xl">FRIDAY</h2>
                             <p className="text-base md:text-lg">THE 13TH SALE</p>
                         </div>
                     </div>
+                    </a>
                 </div>
 
                 {/* Last Image */}
+                <a href="/shop">
                 <div className="image-container relative w-full lg:w-auto">
+                    
                     <Image 
                         src="/image 2.png" 
                         alt="Limited Edition" 
@@ -110,11 +124,13 @@ const BestSelling = () => {
                        
                         priority
                     />
+                    
                     <div className="absolute font-Outfit text-center bottom-4 md:bottom-8 left-4 md:left-8 text-white">
                         <h2 className="text-3xl md:text-4xl font-semibold">FRIDAY</h2>
                         <p className="text-xl md:text-2xl lg:text-3xl text-pink-800 font-bold">THE 13TH SALE</p>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     );

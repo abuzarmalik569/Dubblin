@@ -165,6 +165,8 @@
 //     }
 //   }, [isSearchOpen]);
 
+
+
 //   const toggleMobileMenu = () => {
 //     setIsMobileMenuOpen(!isMobileMenuOpen);
 //     setActiveMobileDropdown(null);
