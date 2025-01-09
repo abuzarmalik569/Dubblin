@@ -24,7 +24,7 @@ const About = () => {
       <div className='container text-black font-Outfit mx-auto flex flex-wrap lg:flex-nowrap justify-around py-10'>
         {/* Left Image Section */}
         <div className='w-full p-3 bg-white lg:w-2/6 flex justify-center mb-8 lg:mb-0'>
-          <Image src={aboutImage} className='w-full h-auto' />
+          <Image src={aboutImage} className='w-full h-auto' alt='About image'/>
         </div>
 
         {/* Right Content Section */}
@@ -42,19 +42,19 @@ const About = () => {
             <div className='space-y-6 mt-5'>
               <h1 className='text-lg lg:text-2xl font-semibold'>HEALTH, HAPPINESS, & SUSTAINABILITY</h1>
               <p className='flex items-center gap-4 text-sm lg:text-xl '>
-                <Image src={core7} className='w-6 lg:w-8' />
+                <Image src={core7} className='w-6 lg:w-8' alt='About image'/>
                 Wide Mouth Bottles To Clean Easily.
               </p>
               <p className='flex items-center gap-4 text-sm lg:text-xl '>
-                <Image src={core8} className='w-6 lg:w-8' />
+                <Image src={core8} className='w-6 lg:w-8' alt='About image'/>
                 Variation In Sizes, Styles, And Material
               </p>
               <p className='flex items-center gap-4 text-sm lg:text-xl '>
-                <Image src={core9} className='w-6 lg:w-8' />
+                <Image src={core9} className='w-6 lg:w-8' alt='About image' />
                 Insulated Bottles For Hot And Cold Technology
               </p>
               <p className='flex items-center gap-4 text-sm lg:text-xl'>
-                <Image src={core10} className='w-6 lg:w-8' />
+                <Image src={core10} className='w-6 lg:w-8' alt='About image' />
                 Made In India To Serve Authenticity
               </p>
             </div>
@@ -65,7 +65,7 @@ const About = () => {
             {['Secure payment', 'Fast Delivery', 'Great Value'].map((feature, index) => (
               <div key={index} className='flex flex-col items-center w-1/3'>
                 <div className='flex justify-center items-center bg-white p-3 lg:py-2 lg:px-2 w-16 h-16 lg:w-24 lg:h-24 rounded-full'>
-                  <Image src={core} className='w-3/4' />
+                  <Image src={core} className='w-3/4' alt='About image' />
                 </div>
                 <p className='mt-2 lg:mt-4 text-xs lg:text-lg font-semibold text-center'>{feature}</p>
               </div>
