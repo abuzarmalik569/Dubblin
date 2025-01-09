@@ -446,6 +446,7 @@ import { useState, useMemo, useContext } from 'react'
 import Image from 'next/image'
 import { IoCheckmark } from "react-icons/io5"
 import { X } from 'lucide-react'
+import Link from 'next/link'
 // import { cartContext } from '../../../cartContext'
 
 const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
@@ -514,11 +515,12 @@ const ProductEach = ({ product, onAddToCart, onBuyNow, onClose }) => {
                             }}
                         />
                     </div>
+                    
                 </div>
                 
                 <div className="w-full mt-5 md:w-1/2 px-5">
                     <div className='flex justify-between'>
-                        <h1 className="text-xl font-semibold">{product.name}</h1>
+                        <Link href={'/product-details'}><h1 className="text-xl font-semibold">{product.name}</h1></Link>
                         {product.badge && (
                             <span className="bg-yellow-400 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
                                 {product.badge}
