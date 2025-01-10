@@ -43,19 +43,29 @@ const Page = () => {
   return (
     <div className='text-black font-Outfit'>
       {/* Top banner */}
-      <div className='w-full h-32 sm:h-40 md:h-56 mb-4 sm:mb-8 md:mb-20' style={{
-        backgroundImage: "url('/top.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}>
-        <div className='text-white p-4 sm:p-8 md:p-20'>
-          <div className='flex items-center text-sm sm:text-base'>
-            <h3>home</h3><ChevronRight size={16} /><h3>Product</h3>
-          </div>
-          <div className='text-xl sm:text-2xl md:text-4xl mt-2'>Feature product</div>
-        </div>
-      </div>
+      <div className='relative w-full h-32 sm:h-40 md:h-56 mb-4 sm:mb-8 md:mb-20'>
+  {/* Background Image */}
+  <div 
+    className='absolute inset-0'
+    style={{
+      backgroundImage: "url('/top.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}
+  />
+  
+  {/* Dark Overlay */}
+  <div className='absolute inset-0 bg-black/50' />
+  
+  {/* Content */}
+  <div className='relative z-10 text-white p-4 sm:p-8 md:p-20'>
+    <div className='flex items-center text-sm sm:text-base'>
+      <h3>home</h3><ChevronRight size={16} /><h3>Product</h3>
+    </div>
+    <div className='text-xl sm:text-2xl md:text-4xl mt-2'>Feature product</div>
+  </div>
+</div>
 
       {/* Main content */}
       <div className='flex flex-col lg:flex-row justify-between relative  max-w-7xl mx-auto'>

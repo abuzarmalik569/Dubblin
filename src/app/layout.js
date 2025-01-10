@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 // import { useState } from "react";
 import {cartContext} from '../app/cartContext.jsx'
 import { useState } from "react";
+import { Toaster } from 'sonner';
 
 
 const Outfit = localFont({
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Toaster richColors position="bottom-center"  />
       </body>
     </html>
     </cartContext.Provider>
