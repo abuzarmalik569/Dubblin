@@ -14,6 +14,7 @@ import blog11 from '../../../public/blog11.png'
 import blog12 from '../../../public/blog12.png'
 import bloglast2 from '../../../public/bloglast2.png'
 import bloglast3 from '../../../public/bloglast3.png'
+import Link from 'next/link'
 
 const Page = () => {
   const posts = [
@@ -105,11 +106,13 @@ const Page = () => {
               key={post.id}
               className="flex flex-col justify-center gap-3 items-center w-full sm:w-[48%] md:w-[32%] mt-6"
             >
+              <Link href="/post-page">         
               <Image
                 src={post.image}
                 alt="Post Image"
                 className="w-full h-auto"
               />
+              </Link>
               <p className='text-black pl-2 text-sm sm:text-base'>{post.title}</p>
             </div>
           ))}

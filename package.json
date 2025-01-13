@@ -20,7 +20,11 @@
     "react-icons": "^5.4.0",
     "react-intersection-observer": "^9.14.1",
     "react-rating-stars-component": "^2.2.0",
+<<<<<<< HEAD
     "react-redux": "^9.2.0"
+=======
+    "sonner": "^1.7.1"
+>>>>>>> aa95a4451862163dd1e4fb6be04e48ca4db1730f
   },
   "devDependencies": {
     "@types/node": "22.10.2",
