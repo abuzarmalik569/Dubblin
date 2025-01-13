@@ -7,7 +7,9 @@ import Footer from "./Components/Footer";
 // import {cartContext} from "../../cartContext"
 // import { useState } from "react";
 import {cartContext} from '../app/cartContext.jsx'
-import { useState } from "react";
+// import { useState } from "react";
+import { Provider } from "react-redux";
+import appStore from './appStore.jsx'
 
 
 const Outfit = localFont({
@@ -36,10 +38,11 @@ const Racing = localFont({
 
 export default function RootLayout({ children }) {
 
-  const[cartlist, setCartlist]=useState([])
+  // const[cartlist, setCartlist]=useState([])
   
   return (
-    <cartContext.Provider value={{cartlist:cartlist , setCartlist}}>
+    <Provider store={appStore}>
+    {/* <cartContext.Provider value={{cartlist:cartlist , setCartlist}}> */}
     <html lang="en">
       <body
         className={`${Outfit.variable} ${Racing.variable} ${Cinzel.variable} antialiased`}
@@ -49,6 +52,7 @@ export default function RootLayout({ children }) {
         <Footer />
       </body>
     </html>
-    </cartContext.Provider>
+    {/* </cartContext.Provider> */}
+    </Provider>
   );
 }
